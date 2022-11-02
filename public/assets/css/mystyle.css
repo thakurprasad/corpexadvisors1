@@ -1,0 +1,129 @@
+
+.navbar-toggler-icon {
+    background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e);
+}
+
+.navbar-nav li:hover > ul.dropdown-menu {
+    display: block;
+}
+.dropdown-submenu {
+    position:relative;
+}
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top:-6px;
+}
+
+/* rotate caret on hover */
+.dropdown-menu > li > a:hover:after {
+    text-decoration: underline;
+    transform: rotate(-90deg);
+} 
+
+.bg-light {
+    background-color: transparent !important;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    background-color: #84B5FF !important;
+    color: white !important;
+}
+
+
+
+.navbar-light .navbar-nav a.nav-link  {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #33406a;
+}
+
+
+@media (max-width: 991px){
+    .overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .header-bottom .header-area {
+        padding: 15px 0;
+        background: white;
+        z-index: 999999;
+    }
+
+    .dropdown-item{
+        white-space: unset !important;
+    }
+
+}
+
+
+/* for menu bar */
+  .hover-tab-menu .tab-menu li{
+                margin-bottom: 65px;
+            }
+            li.how-we-work-3 {
+                margin-left: 80px;
+            }
+            .hover-tab-menu::after, .hover-tab-menu::before{
+                height: 630px;
+                width: 630px;
+            }
+
+            @media (min-width: 992px)
+            {
+                .padding-bottom {
+                    padding-bottom: 50px;
+                }
+            }
+            @media (min-width: 992px){
+                .padding-top {
+                    padding-top: 50px;
+                }
+            }
+
+/*------------ ------------*/
+  .design-2-section .mission-item{
+        padding: 20px 5px;
+    }
+    .design-2-section .mission-item ul li{
+        padding: 1px;
+        font-size: 15px;
+        border-bottom: 1px solid rgb(0 123 255 / 25%);
+    }
+    .text-left{
+        text-align: left;
+    }
+
+    .mission-item .mission-content a.custom-button{
+        color: white;
+        margin-top: 10px;
+
+    }
+    .mission-item .mission-content a.custom-button:hover{
+        color: white;   
+    }
+    .mission-item .mission-thumb{
+        background-color: rgb(146 190 236 / 42%);
+    }
+
+    .mission-item{
+        border: 1px solid rgb(0 123 255 / 38%);
+    }
+    .mission-item:hover{
+        border: 2px solid rgb(0 123 255);
+    }
+
+@media (max-width: 575px){
+    li.how-we-work-3 {
+        margin-left: 0px;
+    }
+}
+
+
+.contact-form .form-group input , .contact-form .form-group textarea{
+    border: none;
+    border-bottom: 1px solid #007bff;
+}
