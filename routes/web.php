@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ServiceController;
+
+use App\Http\Controllers\TestContoller;
+use App\Http\Controllers\CompanyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +21,10 @@ Route::get('/home', function () {
     return view('home');
 });
 
+
+Route::get('/data', [TestContoller::class, 'getCompanyData']);
+Route::get('/companies', [CompanyController::class, 'index']);
+Route::get('/companies/create', [CompanyController::class, 'create']);
 
 Route::get('/1', function () {  return view('home-backup'); });
 Route::get('/2', function () {  return view('home-backup2'); });
