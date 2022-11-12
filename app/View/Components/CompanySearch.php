@@ -49,12 +49,14 @@ class CompanySearch extends Component
       )->orWhere('corporate_identification_number', $this->s)
         ->orWhere('company_name', $this->s)
         ->first();
-        if($company->latest_year_ar != 'NA'){
-           $company->latest_year_ar = Carbon::parse($company->latest_year_ar)->format('d/m/Y');
-       }
-       if($company->latest_year_bs !='NA'){
-         $company->latest_year_bs = Carbon::parse($company->latest_year_bs)->format('d/m/Y');
-       }
+        if($company){
+            if($company->latest_year_ar != 'NA'){
+               $company->latest_year_ar = Carbon::parse($company->latest_year_ar)->format('d/m/Y');
+           }
+           if($company->latest_year_bs !='NA'){
+             $company->latest_year_bs = Carbon::parse($company->latest_year_bs)->format('d/m/Y');
+           }
+        }
 
          $companies = Company::select('company_name')->get();
         return view('components.company-search' , ["data"=>$company, 'companies'=>$companies]);
