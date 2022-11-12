@@ -25,6 +25,12 @@ Route::get('/home', function () {
 Route::get('/data', [TestContoller::class, 'getCompanyData']);
 Route::get('/companies', [CompanyController::class, 'index']);
 Route::get('/companies/create', [CompanyController::class, 'create']);
+Route::get('/companies/show/', [CompanyController::class, 'show']);
+//Route::get('companies', function () {  return view('companies/list'); });
+Route::get('/test', function () {  return view('home-test'); });
+
+
+
 
 Route::get('/1', function () {  return view('home-backup'); });
 Route::get('/2', function () {  return view('home-backup2'); });

@@ -16,7 +16,9 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        return Company::all();
+        $companies = Company::offset(0)->limit(5)->get();
+        return view('companies/list',["data"=>$companies]);
+        
     }
 
     /**
@@ -35,10 +37,11 @@ class CompanyController extends Controller
         $params['api-key'] = '579b464db66ec23bdd000001ad01e5846f6b4a6942b0a88416f5438f';
         $params['format'] = 'json';
         $params['offset'] = 0;
+        #$params['offset'] = 3031;
         $params['limit'] = 30;
         
       //  $params['filters']['corporate_identification_number'] = 'U72900DL2018PTC327857';
-        for($i = 0 ; $i <= 10 ; $i++){
+        for($i = 0 ; $i <= 100 ; $i++){
             $params['offset'] = (($i * 30) + 1) ;
         
             $client = new Client();
@@ -52,7 +55,7 @@ class CompanyController extends Controller
         //return $field = $data->field;
          $companies_data_arr = $data['records'];
         Company::insert($companies_data_arr);
-        sleep(3);
+        #sleep(2);
     }
 
         }catch(Exception $ex){
@@ -77,9 +80,32 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $req)
     {
-        //
+         $company = Company::select( 
+                    'corporate_identification_number',
+                    'company_name',
+                    'company_status',
+                    'company_class',
+                    'company_category',
+                    'company_sub_category',
+                    'date_of_registration',
+                    'registered_state',
+                    'authorized_cap',
+                    'paidup_capital',
+                    'industrial_class',
+                    'principal_business_activity_as_per_cin',
+                    'registered_office_address',
+                    'registrar_of_companies',
+                    'email_addr',
+                    'latest_year_ar',
+                    'latest_year_bs'
+                )->orWhere('corporate_identification_number', $req->s)->orWhere('company_name', $req->s)->first();
+
+         //$companies = Company::select('company_name')->offset(0)->limit(500)->get();
+         $companies = Company::select('company_name')->get();
+
+        return view('companies/show',["data"=>$company, 'companies'=>$companies]);
     }
 
     /**

@@ -1,6 +1,5 @@
-
-
-@extends('layouts.home') 
+@extends('layouts.home')
+ 
 @section('page-title')
     {{__('Home') }}
 @endsection
@@ -66,17 +65,15 @@
                             <p>
                                 We simplify your startup company journey.
                             </p>
-                             <div class="col-md-12 my-10 card">   
-                                <div class="card-body">                            
-                                    <x-company-search s="{{ isset($_GET['s']) ? $_GET['s'] : '' }}" />
-                                </div>
+                            <div class="button-group">                               
+                                <x-company-search s="{{ isset($_GET['s']) ? $_GET['s'] : '' }}" />
                              </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
+
         <!--=======Banner-Section Ends Here=======-->
 
 
@@ -138,10 +135,10 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="section-header left-style">
-                            <span class="cate">Your Dreams Our Platform</span>
-                            <h2 class="title">about us</h2>
+                            <span class="cate">WELCOME TO HYIPLAND</span>
+                            <h2 class="title">about hyipland</h2>
                             <p>
-                                Corpex Advisors is a tech-driven firm which helps startups get registered do their, SECRETARIAL & EVENT and regulatory aspects, We help the start-up in advisory for fundraising, business modeling, and Startup Corpex Advisors CFO Services, technology consulting enabling startup and companies in accessing the internet and be a part of Digital India revolution.
+                                HYIPLAND is an investment company, whose team is working on making money from the volatility of cryptocurrencies and offer great returns to our clients.
                             </p>
                         </div>
                         <div class="about--content">
@@ -150,9 +147,9 @@
                                     <img src="{{ url('public/assets/images/about/about01.png') }}" alt="about">
                                 </div>
                                 <div class="about-content">
-                                    <h5 class="title">Company Valuation</h5>
+                                    <h5 class="title">Secure & Reliable</h5>
                                     <p>
-                                       Company valuation is a critical part of any business transaction and will be required for many reasons.
+                                        Secure assets fund for users
                                     </p>
                                 </div>
                             </div>
@@ -161,9 +158,9 @@
                                     <img src="{{ url('public/assets/images/about/about02.png') }}" alt="about">
                                 </div>
                                 <div class="about-content">
-                                    <h5 class="title">File Tax Returns</h5>
+                                    <h5 class="title">Fast Withdrawals</h5>
                                     <p>
-                                        Talk to our team of Experts and get started with everything from GST return filing to IT return filing.
+                                        Quick money withdrawals for users
                                     </p>
                                 </div>
                             </div>
@@ -172,9 +169,9 @@
                                     <img src="{{ url('public/assets/images/about/about03.png') }}" alt="about">
                                 </div>
                                 <div class="about-content">
-                                    <h5 class="title">BUSINESS REGISTRATION</h5>
+                                    <h5 class="title">Guaranteed</h5>
                                     <p>
-                                        Talk to our team and get dedicated support in registering from a private limited company to Public Company..
+                                        Your return on investment is guaranteed
                                     </p>
                                 </div>
                             </div>
@@ -206,7 +203,7 @@
                         <div class="section-header">
                             <span class="cate">Our Amazing Features</span>
                             <h2 class="title">
-                                why choose us
+                                why should you invest
                             </h2>
                             <p class="mw-100">
                                 We are worldwide investment company who are committed to the principle of revenue  
@@ -222,7 +219,7 @@
                                 <img src="{{ url('public/assets/images/feature/feature01.png') }}" alt="feature">
                             </div>
                             <div class="feature-content">
-                                <h5 class="title">Cost Effective</h5>
+                                <h5 class="title">Profitable Investment</h5>
                                 <p>Donec tincidunt viverra ligula non interdum. Maecenas nulla </p>
                             </div>
                         </div>
@@ -230,10 +227,10 @@
                     <div class="col-md-6 col-sm-10 col-lg-4">
                         <div class="feature-item">
                             <div class="feature-thumb">
-                                <img src="{{ url('public/assets/images/why/why1.png') }}" alt="feature">
+                                <img src="{{ url('public/assets/images/feature/feature02.png') }}" alt="feature">
                             </div>
                             <div class="feature-content">
-                                <h5 class="title">Expert Teams</h5>
+                                <h5 class="title">DDS Protection</h5>
                                 <p>Donec tincidunt viverra ligula non interdum. Maecenas nulla </p>
                             </div>
                         </div>
@@ -253,103 +250,6 @@
             </div>
         </section>
         <!--=======Feature-Section Ends Here=======-->
-
-
-        
-        <!--=======How-Section Starts Here=======-->
-        <!--<section class="get-section padding-top padding-bottom">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-10 col-lg-8">
-                        <div class="section-header">
-                            <span class="cate">get to know</span>
-                            <h2 class="title">how we work?</h2>
-                            <p>
-                                Follow these simple steps and make profit!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="hover-tab">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-6 d-lg-block d-none">
-                            <div class="hover-tab-area">
-                                <div class="tab-area">
-                                    <div class="tab-item active first">
-                                        <img src="{{ url('public/assets/images/how/how01.png') }}" alt="how">
-                                    </div>
-                                    <div class="tab-item second">
-                                        <img src="{{ url('public/assets/images/how/how03.png') }}" alt="how">
-                                    </div>
-                                    <div class="tab-item third">
-                                        <img src="{{ url('public/assets/images/how/how02.png') }}" alt="how">
-                                    </div>
-                                    
-                                    <div class="tab-item third">
-                                        <img src="{{ url('public/assets/images/how/how02.png') }}" alt="how">
-                                    </div>
-                                    
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-9">
-                            <div class="hover-tab-menu">
-                                <ul class="tab-menu">
-                                    <li class="active">
-                                        <div class="menu-thumb">
-                                            <span>
-                                                01
-                                            </span>
-                                        </div>
-                                        <div class="menu-content">
-                                            <h5 class="title">Instant  registration</h5>
-                                            <p>
-                                                Click <a href="#0">Sign Up</a> to fill the form to get started. </p>
-                                                <p>Our startup expert will
-                                                connect with you & prepare
-                                                documents.
-                                              </p>  
-                                            
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="menu-thumb">
-                                            <span>
-                                                02
-                                            </span>
-                                        </div>
-                                        <div class="menu-content">
-                                            <h5 class="title">MAKE PAYMENT</h5>
-                                            <p>
-                                                Make online or offline payment for your order.
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="menu-thumb">
-                                            <span>
-                                                03
-                                            </span>
-                                        </div>
-                                        <div class="menu-content">
-                                            <h5 class="title">submit documents</h5>
-                                            <p>
-                                                Submit documents for your order using online dashboard.
-                                            </p>
-                                        </div>
-                                    </li>
-
-                                       
-                                </ul>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>-->
-        <!--=======How-Section Ends Here=======-->
 
 
         <!--=======How-Section Starts Here=======-->
@@ -375,13 +275,10 @@
                                         <img src="{{ url('public/assets/images/how/how01.png') }}" alt="how">
                                     </div>
                                     <div class="tab-item second">
-                                        <img src="{{ url('public/assets/images/how/how03.png') }}" alt="how">
-                                    </div>
-                                    <div class="tab-item third">
                                         <img src="{{ url('public/assets/images/how/how02.png') }}" alt="how">
                                     </div>
-                                    <div class="tab-item forth">
-                                        <img src="{{ url('public/assets/images/how/how01.png') }}" alt="how">
+                                    <div class="tab-item third">
+                                        <img src="{{ url('public/assets/images/how/how03.png') }}" alt="how">
                                     </div>
                                 </div>
                             </div>
@@ -389,7 +286,7 @@
                         <div class="col-lg-6 col-md-9">
                             <div class="hover-tab-menu">
                                 <ul class="tab-menu">
-                                    <li class="how-we-work-1 active">
+                                    <li class="active">
                                         <div class="menu-thumb">
                                             <span>
                                                 01
@@ -398,51 +295,36 @@
                                         <div class="menu-content">
                                             <h5 class="title">Instant  registration</h5>
                                             <p>
-                                                 Click <a href="{{ url('/sign-up') }}">Sign Up</a> to fill the form to get started. </p>
+                                                Click <a href="#0">Sign Up</a> to fill the blank, our 256 SSL will Protect your privacy.
                                             </p>
                                         </div>
                                     </li>
-                                    <li class="how-we-work-2">
+                                    <li>
                                         <div class="menu-thumb">
                                             <span>
                                                 02
                                             </span>
                                         </div>
                                         <div class="menu-content">
-                                            <h5 class="title">MAKE PAYMENT</h5>
-                                            <p style="width: 350px;">
-                                                Make online or offline payment for your order.
+                                            <h5 class="title">MAKE AN INVEST</h5>
+                                            <p>
+                                                <a href="#0">Login</a> your account to click invest to start to earn the profit.
                                             </p>
                                         </div>
                                     </li>
-                                    <li class="how-we-work-3">
+                                    <li>
                                         <div class="menu-thumb">
                                             <span>
                                                 03
                                             </span>
                                         </div>
                                         <div class="menu-content">
-                                            <h5 class="title">Submit Documents</h5>
+                                            <h5 class="title">get profit</h5>
                                             <p>
-                                                Submit documents for your order using online dashboard.
+                                                You will get your profit on your profile, also you will get Instant Payment
                                             </p>
                                         </div>
                                     </li>
-
-                                    <li class="how-we-work-4">
-                                        <div class="menu-thumb">
-                                            <span>
-                                                04
-                                            </span>
-                                        </div>
-                                        <div class="menu-content">
-                                            <h5 class="title">Work Completed</h5>
-                                            <p>
-                                                Work will be completed by us and updates delivered online in user dashboard.
-                                            </p>
-                                        </div>
-                                    </li>
-
                                 </ul>
                             </div>
                         </div>
@@ -450,35 +332,7 @@
                 </div>
             </div>
         </section>
-        <style type="text/css">
-            /*.hover-tab-menu .tab-menu li{
-                margin-bottom: 65px;
-            }
-            li.how-we-work-3 {
-                margin-left: 80px;
-            }
-            .hover-tab-menu::after, .hover-tab-menu::before{
-                height: 630px;
-                width: 630px;
-            }
-
-            @media (min-width: 992px)
-            {
-                .padding-bottom {
-                    padding-bottom: 50px;
-                }
-            }
-            @media (min-width: 992px){
-                .padding-top {
-                    padding-top: 50px;
-                }
-            } */
-        </style>
         <!--=======How-Section Ends Here=======-->
-
-
-
-
 
 
         <!--=======Check-Section Starts Here=======-->
@@ -506,7 +360,7 @@
 
 
         <!--=======Offer-Section Stars Here=======-->
-        <!--<section class="offer-section padding-top padding-bottom pb-max-md-0" id="plan">
+        <section class="offer-section padding-top padding-bottom pb-max-md-0" id="plan">
             <div class="ball-group-1" data-paroller-factor="-0.30" data-paroller-factor-lg="0.60"
             data-paroller-type="foreground" data-paroller-direction="horizontal">
                 <img src="{{ url('public/assets/images/balls/ball-group1.png') }}" alt="balls">
@@ -654,12 +508,12 @@
                     </div>
                 </div>
             </div>
-        </section>-->
+        </section>
         <!--=======Offer-Section Ends Here=======-->
 
 
         <!--=======Proit-Section Starts Here=======-->
-        <!--<section class="profit-section padding-top" id="profit">
+        <section class="profit-section padding-top" id="profit">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-xl-7">
@@ -818,12 +672,12 @@
                     </div>
                 </div>
             </div>
-        </section>-->
+        </section>
         <!--=======Proit-Section Ends Here=======-->
 
 
         <!--=======Latest-Transaction-Section Starts Here=======-->
-        <!--<section class="latest-transaction padding-top padding-bottom" id="transaction">
+        <section class="latest-transaction padding-top padding-bottom" id="transaction">
             <div class="transaction-bg bg_img" data-background="assets/images/transaction/transaction-bg.png') }}">
                 <span class="d-none">Image</span>
             </div>
@@ -832,7 +686,7 @@
                     <div class="col-lg-8 col-xl-7">
                         <div class="section-header">
                             <span class="cate">Latest Transactions</span>
-                            <h2 class="title">STARTUP REGISTRATION</h2>
+                            <h2 class="title">Monthly Income Feed</h2>
                             <p>Our goal is to simplify investing so that anyone can be an investor.Withthis in mind, 
                             we hand-pick the investments we offer on our platform.</p>
                         </div>
@@ -845,8 +699,8 @@
                                 <i class="flaticon-wallet"></i>
                             </div>
                             <div class="content">
-                                <span class="d-block">Business </span>                                                         
-                                <span class="d-block">Registration</span>
+                                <span class="d-block">last</span>
+                                <span class="d-block">deposits</span>
                             </div>
                         </li>
                         <li>
@@ -854,8 +708,8 @@
                                 <i class="flaticon-atm"></i>
                             </div>
                             <div class="content">
-                                <span class="d-block">fssai &</span>
-                                <span class="d-block">eating license</span>
+                                <span class="d-block">last</span>
+                                <span class="d-block">withdrawals</span>
                             </div>
                         </li>
                         <li>
@@ -863,83 +717,18 @@
                                 <i class="flaticon-team"></i>
                             </div>
                             <div class="content">
-                                <span class="d-block">government</span>
-                                <span class="d-block">licenses</span>
+                                <span class="d-block">last</span>
+                                <span class="d-block">investors</span>
                             </div>
                         </li>
-
-                        <li class="active">
-                            <div class="thumb">
-                                <i class="flaticon-wallet"></i>
-                            </div>
-                            <div class="content">
-                                <span class="d-block">government </span>
-                                <span class="d-block">registration</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="thumb">
-                                <i class="flaticon-atm"></i>
-                            </div>
-                            <div class="content">
-                                <span class="d-block">trademark</span>
-                                <span class="d-block">ipr</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="thumb">
-                                <i class="flaticon-atm"></i>
-                            </div>
-                            <div class="content">
-                                <span class="d-block">trademark</span>
-                                <span class="d-block">ngo</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="thumb">
-                                <i class="flaticon-team"></i>
-                            </div>
-                            <div class="content">
-                                <span class="d-block">business</span>
-                                <span class="d-block">conversion</span>
-                            </div>
-                        </li>
-                        <li class="active">
-                            <div class="thumb">
-                                <i class="flaticon-wallet"></i>
-                            </div>
-                            <div class="content">
-                                <span class="d-block">business</span>
-                                <span class="d-block">closure</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="thumb">
-                                <i class="flaticon-atm"></i>
-                            </div>
-                            <div class="content">
-                                <span class="d-block">secretarial</span>
-                                <span class="d-block">events</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="thumb">
-                                <i class="flaticon-team"></i>
-                            </div>
-                            <div class="content">
-                                <span class="d-block">event</span>
-                                <span class="d-block">based</span>
-                            </div>
-                        </li>
-                        </ul>
-                        
+                    </ul>
                     <div class="tab-area">
                         <div class="tab-item active">
                             <div class="row justify-content-center mb-30-none">
                                 <div class="col-lg-4 col-xl-3 col-sm-6">
                                     <div class="transaction-item">
                                         <div class="transaction-header">
-                                            <h5 class="title">Private Limited Company Registration</h5>
+                                            <h5 class="title">KimHowell21</h5>
                                             <span class="date">December 24, 17:57</span>
                                         </div>
                                         <div class="transaction-thumb">
@@ -1308,355 +1097,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>-->
-        <!--=======Latest-Transaction-Section Ends Here=======-->
-
-        <!--=======Mission-Section Starts Here=======-->
-        <!--<section class="mission-section padding-top padding-bottom">
-            <div class="mission-shape">
-                <img src="{{ url('public/assets/images/mission/mission-shape.png') }}" alt="about">
-            </div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-8 col-lg-10">
-                        <div class="section-header">
-                            <span class="cate">Design-1 Startup Registration</span>
-                            <h2 class="title">
-                                Startup Registrations
-                            </h2>
-                            <p class="mw-100">
-                                We are worldwide investment company who are committed to the principle of revenue maximization and reduction of the financial risks at investing.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-5 rtl">
-                        <div class="mission--thumb">
-                            <img class="wow slideInLeft" src="{{ url('public/assets/images/mission/mission.png') }}" alt="about">
-                        </div>
-                    </div>
-                    <div class="col-lg-7">
-                        <div class="mission-wrapper owl-theme owl-carousel">
-                            <div class="mission-item">
-                                <div class="mission-thumb">
-                                    <img src="{{ url('public/assets/images/mission/1.png') }}" alt="mission">
-                                </div>
-                                <div class="mission-content">
-                                    <h5 class="title">Private Limited Company Registration</h5>
-                                    <p>
-                                        Praesent sagittis nibh vehicula diam tesque 
-                                    </p>
-                                    <a href="#0">Register Now <i class="flaticon-right-arrow"></i></a>
-                                </div>
-                            </div>
-                            <div class="mission-item">
-                                <div class="mission-thumb">
-                                    <img src="{{ url('public/assets/images/mission/2.png') }}" alt="mission">
-                                </div>
-                                <div class="mission-content">
-                                    <h5 class="title">One tap invest</h5>
-                                    <p>
-                                        Praesent sagittis nibh vehicula diam tesque 
-                                    </p>
-                                    <a href="#0">Learn More <i class="flaticon-right-arrow"></i></a>
-                                </div>
-                            </div>
-                            <div class="mission-item">
-                                <div class="mission-thumb">
-                                    <img src="{{ url('public/assets/images/mission/3.png') }}" alt="mission">
-                                </div>
-                                <div class="mission-content">
-                                    <h5 class="title">Max. returns</h5>
-                                    <p>
-                                        Praesent sagittis nibh vehicula diam tesque 
-                                    </p>
-                                    <a href="#0">Learn More <i class="flaticon-right-arrow"></i></a>
-                                </div>
-                            </div>
-                            <div class="mission-item">
-                                <div class="mission-thumb">
-                                    <img src="{{ url('public/assets/images/mission/4.png') }}" alt="mission">
-                                </div>
-                                <div class="mission-content">
-                                    <h5 class="title">Transparency</h5>
-                                    <p>
-                                        Praesent sagittis nibh vehicula diam tesque 
-                                    </p>
-                                    <a href="#0">Learn More <i class="flaticon-right-arrow"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>-->
-        <!--=======Mission-Section Ends Here=======-->
-
-
-
-<!--=======Mission-Section Starts Here=======-->
-        <!--<section class="mission-section padding-top padding-bottom">
-            <div class="mission-shape">
-                <img src="{{ url('public/assets/images/mission/mission-shape.png') }}" alt="about">
-            </div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-8 col-lg-10">
-                        <div class="section-header">
-                            <span class="cate">Design-2 Startup Registration</span>
-                            <h2 class="title">
-                                Startup Registrations
-                            </h2>
-                            <p class="mw-100">
-                                We are worldwide investment company who are committed to the principle of revenue maximization and reduction of the financial risks at investing.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row ____">
-                    <!--<div class="col-lg-5 rtl">
-                        <div class="mission--thumb">
-                            <img class="wow slideInLeft" src="{{ url('public/assets/images/mission/mission.png') }}" alt="about">
-                        </div>
-                    </div>
-                    <div class="col-lg-7 design-2-section">
-                        <div class="mission-wrapper owl-theme owl-carousel ">
-                            <div class="mission-item">
-                                <div class="mission-thumb">
-                                    <img src="{{ url('public/assets/images/mission/1.png') }}" alt="mission">
-                                </div>
-                                <div class="mission-content">
-                                    <h5 class="title">Private Limited Company Registration</h5>
-                                    
-                                    <ul class="text-left">
-                                        <li>
-                                            12 Days' Registration Process 
-                                        </li>
-                                        <li>
-                                            Upload Documents Online
-                                        </li>
-                                        <li>
-                                            Pay via Payment Gateway
-                                        </li>
-                                        <li>
-                                            Track Application Status Online
-                                        </li>
-                                        <li>
-                                            Get DIN, DSC, MOA, AOA &amp; RC
-                                        </li>
-                                    </ul>
-                                    <a href="#0" class="custom-button">Register Now <i class="flaticon-right-arrow"></i></a>
-                                </div>
-                            </div>
-                            <div class="mission-item">
-                                <div class="mission-thumb">
-                                    <img src="{{ url('public/assets/images/mission/2.png') }}" alt="mission">
-                                </div>
-                                <div class="mission-content">
-                                    <h5 class="title">Private Limited Company Registration</h5>
-                                      <ul class="text-left">
-                                        <li>
-                                            12 Days' Registration Process 
-                                        </li>
-                                        <li>
-                                            Upload Documents Online
-                                        </li>
-                                        <li>
-                                            Pay via Payment Gateway
-                                        </li>
-                                        <li>
-                                            Track Application Status Online
-                                        </li>
-                                        <li>
-                                            Get DIN, DSC, MOA, AOA &amp; RC
-                                        </li>
-                                    </ul>
-                                    <a href="#0" class="custom-button">learn more <i class="flaticon-right-arrow"></i></a>
-                                </div>
-                            </div>
-                            <div class="mission-item">
-                                <div class="mission-thumb">
-                                    <img src="{{ url('public/assets/images/mission/3.png') }}" alt="mission">
-                                </div>
-                                <div class="mission-content">
-                                    <h5 class="title">Private Limited Company Registration</h5>
-                                      <ul class="text-left">
-                                        <li>
-                                            12 Days' Registration Process 
-                                        </li>
-                                        <li>
-                                            Upload Documents Online
-                                        </li>
-                                        <li>
-                                            Pay via Payment Gateway
-                                        </li>
-                                        <li>
-                                            Track Application Status Online
-                                        </li>
-                                        <li>
-                                            Get DIN, DSC, MOA, AOA &amp; RC
-                                        </li>
-                                    </ul>
-                                    <a href="#0" class="custom-button">learn more <i class="flaticon-right-arrow"></i></a>
-                                </div>
-                            </div>
-                            <div class="mission-item">
-                                <div class="mission-thumb">
-                                    <img src="{{ url('public/assets/images/mission/4.png') }}" alt="mission">
-                                </div>
-                                <div class="mission-content">
-                                    <h5 class="title">Private Limited Company Registration</h5>
-                                      <ul class="text-left">
-                                        <li>
-                                            12 Days' Registration Process 
-                                        </li>
-                                        <li>
-                                            Upload Documents Online
-                                        </li>
-                                        <li>
-                                            Pay via Payment Gateway
-                                        </li>
-                                        <li>
-                                            Track Application Status Online
-                                        </li>
-                                        <li>
-                                            Get DIN, DSC, MOA, AOA &amp; RC
-                                        </li>
-                                    </ul>
-                                    <a href="#0" class="custom-button">learn more <i class="flaticon-right-arrow"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>-->
-        <style type="text/css">
-         /*
-            .design-2-section .mission-item{
-                    padding: 20px 5px;
-                }
-                .design-2-section .mission-item ul li{
-                    padding: 1px;
-                    font-size: 15px;
-                    border-bottom: 1px solid rgb(0 123 255 / 25%);
-                }
-                .text-left{
-                    text-align: left;
-                }
-
-                .mission-item .mission-content a.custom-button{
-                    color: white;
-                    margin-top: 10px;
-
-                }
-                .mission-item .mission-content a.custom-button:hover{
-                    color: white;   
-                }
-                .mission-item .mission-thumb{
-                    background-color: rgb(146 190 236 / 42%);
-                }
-
-                .mission-item{
-                    border: 1px solid rgb(0 123 255 / 38%);
-                }
-                .mission-item:hover{
-                    border: 2px solid rgb(0 123 255);
-                }
-
-                .mb-30-none {
-                    margin-bottom: -30px !important;
-                }*/
-        </style>
-        <!--=======Mission-Section Ends Here=======-->
-
-
-<!-- ==========How-Section Starts Here========== -->
-        <section class="how-section bg_img padding-top padding-bottom pt-max-md-0" data-background="{{ url('public/assets/images/affiliate/affiliate-bg.png') }}">
-            <div class="ball-3" data-paroller-factor="-0.30" data-paroller-factor-lg="0.60"
-            data-paroller-type="foreground" data-paroller-direction="horizontal">
-                <img src="{{ url('public/assets/images/balls/ball-group9.png') }}" alt="balls">
-            </div>
-            <div class="ball-2" data-paroller-factor="0.30" data-paroller-factor-lg="-0.30"
-            data-paroller-type="foreground" data-paroller-direction="horizontal">
-                <img src="{{ url('public/assets/images/balls/ball-group10.png') }}" alt="balls">
-            </div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="section-header">
-                            <span class="cate">Design-3 Startup Registrations</span>
-                            <h2 class="title">Startup Registrations</h2>
-                            <p>
-                                The affiliate program is our special feature for loyal Investors.Invite users and earn 40% of the fee on their exchange transactions!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center _mb-30-none">
-
-                     {{ \App\Models\Html::service( ['icon'=> 'public/assets/images/how/how4.png', 'title'=> 'Business Registrations', 'url' => 'business-registrations' ] ) }}
-
-                     {{ \App\Models\Html::service( ['icon'=> 'public/assets/images/how/how5.png', 'title'=> 'Government Registrations', 'url' => '#' ] ) }}
-
-                     {{ \App\Models\Html::service( ['icon'=> 'public/assets/images/how/how6.png', 'title'=> 'TRADEMARK & NGO', 'url' => '#' ] ) }}
-
-                     {{ \App\Models\Html::service( ['icon'=> 'public/assets/images/how/how4.png', 'title'=> 'Business Conversion', 'url' => '#' ] ) }}
-
-                     {{ \App\Models\Html::service( ['icon'=> 'public/assets/images/how/how5.png', 'title'=> 'SECRETARIAL & EVENTs', 'url' => '#' ] ) }}
-
-
-
-                <!--
-                    <div class="col-md-6 col-lg-4 col-sm-10">
-                        <div class="how-item">
-                            <div class="how-thumb-area">
-                                <div class="how-thumb">
-                                    <img src="{{ url('public/assets/images/how/how4.png') }}" alt="how">
-                                </div>
-                            </div>
-                            <div class="how-content">
-                                <h5 class="title">Private Limited company Registration</h5>
-                                <a href="#0">Register Now <i class="flaticon-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-sm-10">
-                        <div class="how-item">
-                            <div class="how-thumb-area">
-                                <div class="how-thumb">
-                                    <img src="{{ url('public/assets/images/how/how5.png') }}" alt="how">
-                                </div>
-                            </div>
-                            <div class="how-content">
-                                <h5 class="title">Private Limited company Registration</h5>
-                                <a href="#0">Register Now <i class="flaticon-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 col-sm-10">
-                        <div class="how-item">
-                            <div class="how-thumb-area">
-                                <div class="how-thumb">
-                                    <img src="{{ url('public/assets/images/how/how6.png') }}" alt="how">
-                                </div>
-                            </div>
-                            <div class="how-content">
-                                <h5 class="title">Private Limited company Registration</h5>
-                                <a href="#0">Register Now <i class="flaticon-right"></i></a>
-                            </div>
-                        </div>
-                    </div> --->
-
-                </div>
-
             </div>
         </section>
-        <!-- ==========How-Section Ends Here========== -->
-
-
+        <!--=======Latest-Transaction-Section Ends Here=======-->
 
 
         <!--=======Affiliate-Section Starts Here=======-->

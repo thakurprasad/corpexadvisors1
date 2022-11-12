@@ -1,12 +1,12 @@
 
-<div class="header-top">
+<!--<div class="header-top">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-6">
                 <ul class="support-area">
-                    <!--<li>
+                    <li>
                         <a href="#0"><i class="flaticon-support"></i>Support</a>
-                    </li>-->
+                    </li>
                     <li>
                         <a href="Mailto:info@corpexadvisors.com"><i class="flaticon-email"></i>info@corpexadvisors.com </a>
                     </li>
@@ -15,7 +15,7 @@
                     </li>
                 </ul>
             </div>
-            <!--<div class="col-6" >                            
+            <div class="col-6" >                            
                 <ul class="cart-area">
                     <li>
                         <i class="flaticon-globe"></i>
@@ -31,10 +31,10 @@
                         <a href="#0"><i class="flaticon-shopping-cart"></i>My cart <span>0</span></a>
                     </li>
                 </ul>
-            </div>-->
+            </div>
         </div>
     </div>
-</div>
+</div>-->
 <div class="header-bottom">
     <div class="container">
         <div class="header-area">
