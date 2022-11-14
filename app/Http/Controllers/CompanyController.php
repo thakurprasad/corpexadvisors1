@@ -41,7 +41,7 @@ class CompanyController extends Controller
         $params['limit'] = 30;
         
       //  $params['filters']['corporate_identification_number'] = 'U72900DL2018PTC327857';
-        for($i = 0 ; $i <= 1000 ; $i++){
+        for($i = 0 ; $i <= 300 ; $i++){
             $params['offset'] = (($i * 30) + 1) ;
         
             $client = new Client();
