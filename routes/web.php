@@ -197,4 +197,8 @@ Route::get('event-based-secretarial-events/appointment-and-resignation-of-direct
 Route::get('event-based-secretarial-events/change-in-name-clause', function () {  return view('event-based-secretarial-events/change-in-name-clause'); });
 
 
+Route::get('date', function () {  return date('d-m-Y H:i:s'); });
+
+
+
 
