@@ -41,7 +41,7 @@ class CompanyController extends Controller
         $params['limit'] = 30;
         
       //  $params['filters']['corporate_identification_number'] = 'U72900DL2018PTC327857';
-        for($i = 0 ; $i <= 300 ; $i++){
+        for($i = 0 ; $i <= 3000 ; $i++){
             $params['offset'] = (($i * 30) + 1) ;
         
             $client = new Client();
@@ -55,7 +55,7 @@ class CompanyController extends Controller
         //return $field = $data->field;
          $companies_data_arr = $data['records'];
         Company::insert($companies_data_arr);
-        sleep(1);
+        sleep(3);
     }
 
         }catch(Exception $ex){
