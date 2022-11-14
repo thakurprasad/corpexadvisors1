@@ -25,9 +25,19 @@ class CompanyController extends Controller
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
+     * 
+    0
+    900
+    1800
+    2700
+    3600
      */
-    public function create()
+# https://api.data.gov.in/resource/bffbc5a2-0c7b-4c7a-be82-6da25438dd07?api-key=579b464db66ec23bdd000001ad01e5846f6b4a6942b0a88416f5438f&format=json&offset=0&limit=30
+
+
+    public function create($offset)
     {
+     
         try{
          $headers = [
                     "Content-Type: application/json"
@@ -36,31 +46,45 @@ class CompanyController extends Controller
         $endpoint = 'https://api.data.gov.in/resource/bffbc5a2-0c7b-4c7a-be82-6da25438dd07';
         $params['api-key'] = '579b464db66ec23bdd000001ad01e5846f6b4a6942b0a88416f5438f';
         $params['format'] = 'json';
-        $params['offset'] = 0;
-        #$params['offset'] = 3031;
-        $params['limit'] = 30;
-        
-      //  $params['filters']['corporate_identification_number'] = 'U72900DL2018PTC327857';
-        for($i = 0 ; $i <= 3000 ; $i++){
-            $params['offset'] = (($i * 30) + 1) ;
-        
-            $client = new Client();
-            $response = $client->request('GET', $endpoint, ['query' => $params ]);
-            $statusCode = $response->getStatusCode();
-           // return $content = $response->getBody(); // in json 
+        $params['offset'] = $offset;
+        $params['limit'] = 50;
 
-
+        $client = new Client();
+        $response = $client->request('GET', $endpoint, ['query' => $params ]);
+        $statusCode = $response->getStatusCode();
         $data = json_decode($response->getBody(), true); # ARRAY
 
-        //return $field = $data->field;
-         $companies_data_arr = $data['records'];
-        Company::insert($companies_data_arr);
-        sleep(3);
+        $companies_data_arr = $data['records'];
+        Company::insert($companies_data_arr);  
+        unset($data);
+            
+         $offset = Company::count();
+         return "<h1>Insert Record: ".$offset."</h1>";
+        // echo  "<a href='".url('companies/create/'.$offset)."'> Offset: ". ( $offset + 1 ) ." </a>";
+        }catch(Exception $ex){
+            echo "Error".$ex->getMessage();
+        }
+        
     }
 
-        }catch(Exception $ex){
-            return $ex->getMessage();
-        }
+/**
+ * 
+ * 100*50 = 5000
+ * 
+ * */
+    public function create_in_loop($loop){  
+
+         for ($i=1; $i <= $loop; $i++) { 
+             $offset = Company::count();
+             if($offset ==0 ){
+                $offset = 0;
+             }else{
+                $offset = Company::count() + 1;
+             }
+             echo  $this->create($offset); // 50 record insert
+              echo "<br>";
+         }
+
     }
 
     /**
