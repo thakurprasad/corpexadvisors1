@@ -47,7 +47,7 @@ class CompanyController extends Controller
         $params['api-key'] = '579b464db66ec23bdd000001ad01e5846f6b4a6942b0a88416f5438f';
         $params['format'] = 'json';
         $params['offset'] = $offset;
-        $params['limit'] = 50;
+        $params['limit'] = 30;
 
         $client = new Client();
         $response = $client->request('GET', $endpoint, ['query' => $params ]);
