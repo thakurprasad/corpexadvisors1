@@ -58,7 +58,7 @@ class CompanySearch extends Component
            }
         }
 
-         $companies = Company::select('company_name')->get();
+        $companies = Company::select('company_name')->take(1000)->get();
         return view('components.company-search' , ["data"=>$company, 'companies'=>$companies]);
     }
 }
