@@ -80,7 +80,7 @@ class CompanyController extends Controller
 
     public function update_completed_flag($state, $total){
         if($total <= $this->getInsertedCount($state)){
-            $urls =  ApiUrl::where('url', $url)->update(['status' => 'completed']);    
+            ApiUrl::where('state', $state)->update(['status' => 'completed']);    
         }
     }
 
