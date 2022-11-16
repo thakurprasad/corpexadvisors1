@@ -22,6 +22,11 @@ Route::get('/home', function () {
 });
 
 
+Route::get('/cron-status', 
+function(){
+    return DB::select('SELECT registered_state as State, COUNT(1) Total_Records FROM `companies` GROUP BY registered_state  
+ORDER BY `total_records` ASC');
+});
 Route::get('/data', [TestContoller::class, 'getCompanyData']);
 Route::get('/companies', [CompanyController::class, 'index']);
 
