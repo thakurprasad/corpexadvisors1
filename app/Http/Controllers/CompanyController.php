@@ -78,9 +78,9 @@ class CompanyController extends Controller
         return  $count_inserted = Company::where('registered_state', $state)->count();
     }
 
-    public function update_completed_flag($state, $total){
+    public function update_completed_flag($state, $total){        
         if($total <= $this->getInsertedCount($state)){
-            ApiUrl::where('state', $state)->update(['status' => 'completed']);    
+            ApiUrl::where('state', $state)->where('total', '<=', $total)->update(['status' => 'completed']);    
         }
     }
 
@@ -117,12 +117,12 @@ class CompanyController extends Controller
                 $c++; 
                 if($c == $loop_exit ){ 
                     echo implode("<br>", $DATA);
-                    $this->update_completed_flag($state, $total);
+                    $this->update_completed_flag($state, $row->total);
                     exit(); // exiting from loop and stop compiler
                 }
             }
             echo implode("<br>", $DATA);
-            $this->update_completed_flag($state, $total);
+            $this->update_completed_flag($state, $row->total);
             
     }
 
