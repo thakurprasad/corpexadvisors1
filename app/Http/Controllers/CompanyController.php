@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Company;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Http;
+use App\Models\ApiUrl;
+
 
 class CompanyController extends Controller
 {
@@ -16,6 +18,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
+
         $companies = Company::offset(0)->limit(5)->get();
         return view('companies/list',["data"=>$companies]);
         
@@ -32,18 +35,16 @@ class CompanyController extends Controller
     2700
     3600
      */
-# https://api.data.gov.in/resource/bffbc5a2-0c7b-4c7a-be82-6da25438dd07?api-key=579b464db66ec23bdd000001ad01e5846f6b4a6942b0a88416f5438f&format=json&offset=0&limit=30
+# https://api.data.gov.in/resource/bffbc5a2-0c7b-4c7a-be82-6da25438dd07?api-key=579b464db66ec23bdd000001ad01e5846f6b4a6942b0a88416f5438f&format=json&offset=80&limit=30
 
 
-    public function create($offset)
+    public function create($offset, $url)
     {
-     
+         "<h1>Offset: " .$offset . "</h1>";
         try{
-         $headers = [
-                    "Content-Type: application/json"
-                ];
+         $headers = ["Content-Type: application/json"];
         
-        $endpoint = 'https://api.data.gov.in/resource/bffbc5a2-0c7b-4c7a-be82-6da25438dd07';
+        $endpoint = 'https://api.data.gov.in/resource/'.$url;
         $params['api-key'] = '579b464db66ec23bdd000001ad01e5846f6b4a6942b0a88416f5438f';
         $params['format'] = 'json';
         $params['offset'] = $offset;
@@ -54,13 +55,16 @@ class CompanyController extends Controller
         $statusCode = $response->getStatusCode();
         $data = json_decode($response->getBody(), true); # ARRAY
 
-        $companies_data_arr = $data['records'];
-        Company::insert($companies_data_arr);  
-        unset($data);
-            
-         $offset = Company::count();
-         return "<h1>Insert Record: ".$offset."</h1>";
-        // echo  "<a href='".url('companies/create/'.$offset)."'> Offset: ". ( $offset + 1 ) ." </a>";
+               
+        if(!isset($data['records'])){            
+           // nothing 
+        }else{
+            $companies_data_arr = $data['records'];
+            Company::insert($companies_data_arr);  
+            $count_inserted = Company::where('registered_state', $data['records'][0]['registered_state'])->count();
+            echo " | count Insert: ". $count_inserted . "<br>";
+        }
+      
         }catch(Exception $ex){
             echo "Error".$ex->getMessage();
         }
@@ -72,19 +76,79 @@ class CompanyController extends Controller
  * 100*50 = 5000
  * 
  * */
-    public function create_in_loop($loop){  
+    public function create_in_loop1($loop){  
+        $rows =  ApiUrl::where('status', 'pending')->get();
+        foreach($rows as $key => $row){
 
-         for ($i=1; $i <= $loop; $i++) { 
-             $offset = Company::count();
-             if($offset ==0 ){
-                $offset = 0;
-             }else{
-                $offset = Company::count() + 1;
-             }
-             echo  $this->create($offset); // 50 record insert
-              echo "<br>";
-         }
+            for ($i=1; $i <= $loop; $i++) {
 
+                 $offset = Company::where('registered_state', $row->state)->count();
+                 if($offset ==0 ){
+                    $offset = 0;
+                 }else{
+                    $offset = ($offset + 1);
+                 }
+
+                 $url =  $row->url; #'bffbc5a2-0c7b-4c7a-be82-6da25438dd07';
+
+                 if(!empty($row->total)){
+                     $offset = ( ( $row->total >= $offset) ? $offset : $row->total );
+                }
+
+                 echo  $this->create($offset, $url); // 50 record insert
+                  echo "<br>";
+             } // end of for loop
+
+        } # end of foreach
+
+
+
+    }
+
+// http://localhost/corpexadvisors2/companies/total_record_update
+    public function total_record_update(){
+
+        try{
+                $rows = ApiUrl::all();
+                foreach ($rows as $key => $row) {
+                    $headers = [
+                                "Content-Type: application/json"
+                            ];
+                    $endpoint = 'https://api.data.gov.in/resource/'.$row->url;
+                    $params['api-key'] = '579b464db66ec23bdd000001ad01e5846f6b4a6942b0a88416f5438f';
+                    $params['format'] = 'json';
+                    $params['offset'] = 0; //$offset;
+                    $params['limit'] = 1;
+                    $client = new Client();
+                    $response = $client->request('GET', $endpoint, ['query' => $params ]);
+                    $statusCode = $response->getStatusCode();
+                    $data = json_decode($response->getBody(), true); # ARRAY
+                    $urls =  ApiUrl::where('url', $row->url)->update(['total' => $data['total']]);
+                }
+            }catch(Exception $ex){
+                echo $ex->getMessage();
+            }
+
+    }
+
+
+    public function create_in_loop(){
+return         $offset = Company::where('registered_state', 'Chhattisgarh')->count(); // 10
+            $row =  ApiUrl::where('status', 'pending')->first();
+            $url = $row->url;
+            $total = $row->total;
+            $state = $row->state;
+            $loop = (int)($total/30); #409
+            $limit = 30;
+            for ($i=1; $i <= $loop ; $i++) {       
+                $offset = Company::where('registered_state', $state)->count(); // 10
+                $offset1 = ($offset + 1); //($offset > 0 ? ($offset + 1) : $offset );
+               // echo ">>". $i .  "<br>";
+                $this->create($offset1, $url);    
+                //sleep(1);
+            }
+
+            $urls =  ApiUrl::where('url', $url)->update(['status' => 'completed']);
     }
 
     /**
@@ -106,6 +170,7 @@ class CompanyController extends Controller
      */
     public function show(Request $req)
     {
+
          $company = Company::select( 
                     'corporate_identification_number',
                     'company_name',

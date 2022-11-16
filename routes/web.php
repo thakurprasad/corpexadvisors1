@@ -28,6 +28,8 @@ Route::get('/companies', [CompanyController::class, 'index']);
 #Route::get('/companies/create/{offset}', [CompanyController::class, 'create']);
 
 Route::get('/companies/create_in_loop/{loop}', [CompanyController::class, 'create_in_loop']);
+Route::get('/companies/create_in_loop', [CompanyController::class, 'create_in_loop']);
+Route::get('/companies/total_record_update', [CompanyController::class, 'total_record_update']);
 
 Route::get('/companies/show/', [CompanyController::class, 'show']);
 //Route::get('companies', function () {  return view('companies/list'); });
