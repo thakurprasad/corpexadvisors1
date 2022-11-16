@@ -102,7 +102,7 @@ class CompanyController extends Controller
                 //$offset1 = ($offset == 0 ? 0 : ($offset+1)); 
                 $DATA[] = $this->create($offset, $url);    
                 $c++; 
-                if($c == 100 ){ exit(); }
+                if($c == 20 ){ exit(); }
             }
             echo implode("<br>", $DATA);
             if($total == $this->getInsertedCount($state)){
