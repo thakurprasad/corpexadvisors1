@@ -81,9 +81,12 @@ class CompanyController extends Controller
 
     public function create_in_loop(){
             $row =  ApiUrl::where('status', 'pending')->where('total', '>', 0)->orderBy('total', 'ASC')->first();
+
             $url = $row->url;
             $total = $row->total;
             $state = $row->state;
+            $existing_count = $this->getInsertedCount($state);
+            $total = ( $total - $existing_count );
             if($total>30){
                 $loop = (int)($total/30);
                 $loop_start = 0;
@@ -93,11 +96,13 @@ class CompanyController extends Controller
             }
 
             $limit = 30;
-            $DATA = [];
+            $DATA = []; $c = 1;
             for ($i = $loop_start; $i <= $loop ; $i++) { 
                 $offset = $this->getInsertedCount($state); //180
                 //$offset1 = ($offset == 0 ? 0 : ($offset+1)); 
                 $DATA[] = $this->create($offset, $url);    
+                $c++; 
+                if($c == 100 ){ exit(); }
             }
             echo implode("<br>", $DATA);
             if($total == $this->getInsertedCount($state)){
