@@ -103,10 +103,11 @@ class CompanyController extends Controller
                 $DATA[] = $this->create($offset, $url);    
                 $c++; 
                 if($c == 20 ){ 
+                     echo implode("<br>", $DATA);
                     if($total == $this->getInsertedCount($state)){
                         $urls =  ApiUrl::where('url', $url)->update(['status' => 'completed']);    
                     }
-                    exit(); 
+                    exit(); // exiting from loop and stop compiler
                 }
             }
             echo implode("<br>", $DATA);
