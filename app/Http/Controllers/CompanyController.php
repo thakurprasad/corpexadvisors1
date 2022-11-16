@@ -57,59 +57,61 @@ class CompanyController extends Controller
 
                
         if(!isset($data['records'])){            
-           // nothing 
+           return "records not found";
         }else{
             $companies_data_arr = $data['records'];
+            $state = $data['records'][0]['registered_state'];
             Company::insert($companies_data_arr);  
-            $count_inserted = Company::where('registered_state', $data['records'][0]['registered_state'])->count();
-            echo " | count Insert: ". $count_inserted . "<br>";
+            $count_inserted = Company::where('registered_state',$state)->count();
+            return $DATA = "Registered State : ".$state . " | inserted : ".$count_inserted;
+
         }
       
         }catch(Exception $ex){
-            echo "Error".$ex->getMessage();
+            return "Error : ".$ex->getMessage();
         }
         
     }
 
-/**
- * 
- * 100*50 = 5000
- * 
- * */
-    public function create_in_loop1($loop){  
-        $rows =  ApiUrl::where('status', 'pending')->get();
-        foreach($rows as $key => $row){
 
-            for ($i=1; $i <= $loop; $i++) {
-
-                 $offset = Company::where('registered_state', $row->state)->count();
-                 if($offset ==0 ){
-                    $offset = 0;
-                 }else{
-                    $offset = ($offset + 1);
-                 }
-
-                 $url =  $row->url; #'bffbc5a2-0c7b-4c7a-be82-6da25438dd07';
-
-                 if(!empty($row->total)){
-                     $offset = ( ( $row->total >= $offset) ? $offset : $row->total );
-                }
-
-                 echo  $this->create($offset, $url); // 50 record insert
-                  echo "<br>";
-             } // end of for loop
-
-        } # end of foreach
-
-
-
+    public function getInsertedCount($state){
+        return  $count_inserted = Company::where('registered_state', $state)->count();
     }
+
+
+    public function create_in_loop(){
+            $row =  ApiUrl::where('status', 'pending')->where('total', '>', 0)->orderBy('total', 'ASC')->first();
+            $url = $row->url;
+            $total = $row->total;
+            $state = $row->state;
+            if($total>30){
+                $loop = (int)($total/30);
+                $loop_start = 0;
+            }else{
+                $loop = 1;
+                $loop_start = 1;
+            }
+
+            $limit = 30;
+            $DATA = [];
+            for ($i = $loop_start; $i <= $loop ; $i++) { 
+                $offset = $this->getInsertedCount($state); //180
+                //$offset1 = ($offset == 0 ? 0 : ($offset+1)); 
+                $DATA[] = $this->create($offset, $url);    
+            }
+            echo implode("<br>", $DATA);
+            if($total == $this->getInsertedCount($state)){
+                $urls =  ApiUrl::where('url', $url)->update(['status' => 'completed']);    
+            }
+            
+    }
+
 
 // http://localhost/corpexadvisors2/companies/total_record_update
     public function total_record_update(){
 
         try{
-                $rows = ApiUrl::all();
+                $rows = ApiUrl::select('*')->get();
                 foreach ($rows as $key => $row) {
                     $headers = [
                                 "Content-Type: application/json"
@@ -122,41 +124,32 @@ class CompanyController extends Controller
                     $client = new Client();
                     $response = $client->request('GET', $endpoint, ['query' => $params ]);
                     $statusCode = $response->getStatusCode();
+                    #return $response->getBody();
                     $data = json_decode($response->getBody(), true); # ARRAY
-                    $urls =  ApiUrl::where('url', $row->url)->update(['total' => $data['total']]);
+                    #dd($data['records'][0]['registered_state']);
+
+                    if(isset($data['records'][0]['registered_state'])){
+                        $urls =  ApiUrl::where('url', $row->url)->update([
+                            'total' => $data['total'],
+                            'state' => $data['records'][0]['registered_state'],
+                        ]);
+                    }
                 }
             }catch(Exception $ex){
-                echo $ex->getMessage();
+                dd($ex->getMessage());
             }
 
     }
 
 
-    public function create_in_loop(){
-return         $offset = Company::where('registered_state', 'Chhattisgarh')->count(); // 10
-            $row =  ApiUrl::where('status', 'pending')->first();
-            $url = $row->url;
-            $total = $row->total;
-            $state = $row->state;
-            $loop = (int)($total/30); #409
-            $limit = 30;
-            for ($i=1; $i <= $loop ; $i++) {       
-                $offset = Company::where('registered_state', $state)->count(); // 10
-                $offset1 = ($offset + 1); //($offset > 0 ? ($offset + 1) : $offset );
-               // echo ">>". $i .  "<br>";
-                $this->create($offset1, $url);    
-                //sleep(1);
-            }
 
-            $urls =  ApiUrl::where('url', $url)->update(['status' => 'completed']);
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
+
+
+
+
+
     public function store(Request $request)
     {
         //
