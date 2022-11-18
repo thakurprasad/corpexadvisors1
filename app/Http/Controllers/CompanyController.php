@@ -11,6 +11,14 @@ use App\Models\ApiUrl;
 
 class CompanyController extends Controller
 {
+/*
+    protected $eleastecasearch;
+    protected = $eleasteca;
+
+    public function __construct(){
+        $this->;
+    }
+*/
     /**
      * Display a listing of the resource.
      *
@@ -37,12 +45,17 @@ class CompanyController extends Controller
      */
 # https://api.data.gov.in/resource/bffbc5a2-0c7b-4c7a-be82-6da25438dd07?api-key=579b464db66ec23bdd000001ad01e5846f6b4a6942b0a88416f5438f&format=json&offset=80&limit=30
 
+#https://api.data.gov.in/resource/6747de29-2aae-48a0-8c77-b67a870229ab?api-key=579b464db66ec23bdd000001ad01e5846f6b4a6942b0a88416f5438f&format=json&offset=9990&limit=30
+
 
     public function create($offset, $url)
     {
          "<h1>Offset: " .$offset . "</h1>";
         try{
-         $headers = ["Content-Type: application/json"];
+         $headers = [
+                    "Content-Type: application/json",
+                     "index.max_result_window: 12000"                   
+                    ];
         
         $endpoint = 'https://api.data.gov.in/resource/'.$url;
         $params['api-key'] = '579b464db66ec23bdd000001ad01e5846f6b4a6942b0a88416f5438f';
@@ -53,7 +66,7 @@ class CompanyController extends Controller
         $client = new Client();
         $response = $client->request('GET', $endpoint, ['query' => $params ]);
         $statusCode = $response->getStatusCode();
-        $data = json_decode($response->getBody(), true); # ARRAY
+       return $data = json_decode($response->getBody(), true); # ARRAY
 
                
         if(!isset($data['records'])){            
@@ -78,14 +91,18 @@ class CompanyController extends Controller
         return  $count_inserted = Company::where('registered_state', $state)->count();
     }
 
-    public function update_completed_flag($state, $total){        
-        if($total <= $this->getInsertedCount($state)){
-            ApiUrl::where('state', $state)->where('total', '<=', $total)->update(['status' => 'completed']);    
+    public function update_completed_flag($state, $total){  
+        $exists = $this->getInsertedCount($state) + 30;    
+        if($total <= $this->getInsertedCount($state) || $exists >= 10000){
+            ApiUrl::where('state', $state)->where('total', '<=', $total)->update(['status' => 'completed']);  
+            dd($state . " : "." completed"); 
         }
     }
 
 
     public function create_in_loop(Request $req ){
+       //  return $this->create(9990, '6747de29-2aae-48a0-8c77-b67a870229ab');
+
             if($req->has('loop')){
                 $loop_exit =  $req->loop;    
             }else{
@@ -96,9 +113,9 @@ class CompanyController extends Controller
             $row =  ApiUrl::where('status', 'pending')->where('total', '>', 0)->orderBy('total', 'ASC')->first();
 
             $url = $row->url;
-            $total = $row->total;
+            $total = $row->total; # 10490 -9990
             $state = $row->state;
-            $existing_count = $this->getInsertedCount($state);
+            $existing_count = $this->getInsertedCount($state); # 9990
             $total = ( $total - $existing_count );
             if($total>30){
                 $loop = (int)($total/30);
@@ -108,6 +125,8 @@ class CompanyController extends Controller
                 $loop_start = 1;
             }
 
+            $this->update_completed_flag($state, $row->total);
+            
             $limit = 30;
             $DATA = []; $c = 0;
             for ($i = $loop_start; $i <= $loop ; $i++) { 

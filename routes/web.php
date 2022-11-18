@@ -21,6 +21,11 @@ Route::get('/home', function () {
     return view('home');
 });
 
+Route::get('/elastic-search', function () {   
+        $client = Elasticsearch\ClientBuilder::create()->build();
+        var_dump($client);
+});
+
 
 Route::get('/cron-status', 
 function(){
