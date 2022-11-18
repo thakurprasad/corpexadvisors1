@@ -14,6 +14,7 @@ class Company extends Model
         'company_name',
         'company_status',
         'company_class',
+        'company_class_',
         'company_category',
         'company_sub_category',
         'date_of_registration',
