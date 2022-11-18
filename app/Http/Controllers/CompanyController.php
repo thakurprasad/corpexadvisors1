@@ -126,9 +126,9 @@ class CompanyController extends Controller
             }
 
             $this->update_completed_flag($state, $row->total);
-            
+
             $limit = 30;
-            $DATA = []; $c = 0;
+            $DATA[] = "--"; $c = 0;
             for ($i = $loop_start; $i <= $loop ; $i++) { 
                 $offset = $this->getInsertedCount($state); //180
                 //$offset1 = ($offset == 0 ? 0 : ($offset+1)); 
