@@ -50,7 +50,7 @@ class CompanyController extends Controller
 
     public function create($offset, $url)
     {
-         "<h1>Offset: " .$offset . "</h1>";
+       # echo  "<h1>Offset: " .$offset . "</h1>";
         try{
          $headers = [
                     "Content-Type: application/json",
@@ -66,7 +66,7 @@ class CompanyController extends Controller
         $client = new Client();
         $response = $client->request('GET', $endpoint, ['query' => $params ]);
         $statusCode = $response->getStatusCode();
-       return $data = json_decode($response->getBody(), true); # ARRAY
+        $data = json_decode($response->getBody(), true); # ARRAY
 
                
         if(!isset($data['records'])){            
@@ -94,7 +94,9 @@ class CompanyController extends Controller
     public function update_completed_flag($state, $total){  
         $exists = $this->getInsertedCount($state) + 30;    
         if($total <= $this->getInsertedCount($state) || $exists >= 10000){
-            ApiUrl::where('state', $state)->where('total', '<=', $total)->update(['status' => 'completed']);  
+            ApiUrl::where('state', $state)
+            #->where('total', '<=', $total)
+            ->update(['status' => 'completed']);  
             dd($state . " : "." completed"); 
         }
     }
@@ -128,7 +130,7 @@ class CompanyController extends Controller
             $this->update_completed_flag($state, $row->total);
 
             $limit = 30;
-            $DATA[] = "--"; $c = 0;
+            $DATA[] = "API Response Result"; $c = 0;
             for ($i = $loop_start; $i <= $loop ; $i++) { 
                 $offset = $this->getInsertedCount($state); //180
                 //$offset1 = ($offset == 0 ? 0 : ($offset+1)); 
