@@ -6,6 +6,8 @@ use App\Http\Controllers\ServiceController;
 
 use App\Http\Controllers\TestContoller;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\DashboardController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -214,6 +216,9 @@ Route::get('event-based-secretarial-events/change-in-name-clause', function () {
 
 
 Route::get('date', function () {  return date('d-m-Y H:i:s'); });
+
+Route::get('dashboard', [ DashboardController::class, 'index']);
+
 
 
 

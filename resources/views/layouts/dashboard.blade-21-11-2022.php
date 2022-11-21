@@ -7,7 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?= (isset($title) ? $title: '' ) ?></title>
+
+    <title>Hyipland - HYIP Investment HTML Template</title>
+
     <link rel="stylesheet" href="{{ url('public/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url('public/assets/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ url('public/assets/css/animate.css') }}">
@@ -40,7 +42,55 @@
         <!--=======SideHeader-Section Starts Here=======-->
         <div class="notify-overlay"></div>
         <section class="dashboard-section">
-            <x-dashbaord.sidebar-menu />
+            <div class="side-header oh">
+                <div class="cross-header-bar d-xl-none">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="site-header-container">
+                    <div class="side-logo">
+                        <a href="dashboard.html">
+                            <img src="{{ url('public/assets/images/logo/logo.png') }}" alt="logo">
+                        </a>
+                    </div>
+                    <ul class="dashboard-menu">
+                        <li>
+                            <a href="dashboard.html" class="active"><i class="flaticon-man"></i>Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="operations.html"><i class="flaticon-coin"></i>Operations</a>
+                        </li>
+                        <li>
+                            <a href="deposit.html"><i class="flaticon-interest"></i>Deposits</a>
+                        </li>
+                        <li>
+                            <a href="withdraw.html"><i class="flaticon-atm"></i>Withdraw</a>
+                        </li>
+                        <li>
+                            <a href="fund-transfer.html"><i class="flaticon-exchange"></i>Fund Transfer </a>
+                        </li>
+                        <li>
+                            <a href="partners.html"><i class="flaticon-deal"></i>Partners</a>
+                        </li>
+                        <li>
+                            <a href="setting.html"><i class="flaticon-gears"></i>Settings</a>
+                        </li>
+                        <li>
+                            <a href="notification.html"><i class="flaticon-bell"></i>Notifications</a>
+                        </li>
+                        <li>
+                            <a href="ticket.html"><i class="flaticon-sms"></i>Tickets</a>
+                        </li>
+                        <li>
+                            <a href="promotional-metarials.html"><i class="flaticon-deal"></i>Promotional</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><i class="flaticon-right-arrow"></i>Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <div class="dasboard-body">
                 <div class="dashboard-hero">
                     <div class="header-top">
@@ -61,7 +111,7 @@
                                         <a href="#0"><i class="flaticon-support"></i>Support</a>
                                     </li>
                                     <li>
-                                        <a href="Mailto:info@hyipland.com"><i class="flaticon-email"></i>info@websoft-tech.in </a>
+                                        <a href="Mailto:info@hyipland.com"><i class="flaticon-email"></i>info@hyipland.com </a>
                                     </li>
                                     <li>
                                         <i class="flaticon-globe"></i>
@@ -236,22 +286,19 @@
                         </div>
                     </div>
                     <div class="dashboard-hero-content text-white">
-                        <h3 class="title"><?= (isset($module) ? $module: 'Dashboard' ) ?></h3>
+                        <h3 class="title">Dashboard</h3>
                         <ul class="breadcrumb">
                             <li>
                                 <a href="index.html">Home</a>
                             </li>
                             <li>
-                                <?= (isset($title) ? $title: '' ) ?>
+                                Dashboard
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="container-fluid">
-                     <div class="row pb-30">
-                        @yield('body')
-                     </div>
-                   <!--  <div class="row justify-content-center mt--85">
+                    <div class="row justify-content-center mt--85">
                         <div class="col-sm-6 col-lg-3">
                             <div class="dashboard-item">
                                 <div class="dashboard-inner">
@@ -304,8 +351,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div> -->
-               <!--      <div class="row pb-30">
+                    </div>
+                    <div class="row pb-30">
                         <div class="col-lg-6">
                             <div class="total-earning-item">
                                 <div class="total-earning-heading">
@@ -627,21 +674,21 @@
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
                 <div class="container-fluid sticky-bottom">
                     <div class="dashboard-footer">
                         <div class="d-flex flex-wrap justify-content-between m-0-15-none">
                             <div class="left">
-                                &copy; <?= date('Y') ?> <a href="https://websoft-tech.in">Websoft Tech</a>  |  All right reserved.
+                                &copy; 2020 <a href="#0">Hyipland</a>  |  All right reserved.
                             </div>
                             <div class="right">
                                 <ul>
                                     <li>
-                                        <a href="#">Terms of use</a>
+                                        <a href="#0">Terms of use</a>
                                     </li>
                                     <li>
-                                        <a href="#">Privacy policy</a>
+                                        <a href="#0">Privacy policy</a>
                                     </li>
                                 </ul>
                             </div>
