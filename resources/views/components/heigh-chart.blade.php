@@ -7,12 +7,31 @@
 <figure class="highcharts-figure">
     <div id="container"></div>
     <p class="highcharts-description">
-        <h2>Indain Companies List Graphical Representation</h2>
+        <h2>State Wise Companies List Graphical Representation</h2>
     </p>
-
+<div class="">
     <button id="plain" class="btn btn-primary btn-sm">Plain</button>
     <button id="inverted" class="btn-info btn-sm">Inverted</button>
     <button id="polar" class=" btn-success btn-sm">Polar</button>
+</div>
+<br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>State</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($rows as $key=>$row)
+            <tr>
+                <td>{{ $row->state }}</td>
+                <td>{{ $row->total }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+        
+    </table>
 
 </figure>
 
@@ -67,6 +86,8 @@
     background: #f1f7ff;
 }
 
+
+
 </style>
 <?php /* https://www.highcharts.com/demo/chart-update */ ?>
 <script>
@@ -85,7 +106,7 @@
     console.log(VAL_ARR);
     const chart = Highcharts.chart('container', {
     title: {
-        text: 'Company Registration Graph upto 31st March 2021'
+        text: 'Company Registration State Wise Graph upto 31st March 2021'
     },
     subtitle: {
         text: 'Chart option: Plain | Total Companies: ' + total_companies
@@ -113,9 +134,7 @@ document.getElementById('plain').addEventListener('click', () => {
             polar: false
         },
         subtitle: {
-            text: 'Chart option: Plain | Source: ' +
-                '<a href="https://www.nav.no/no/nav-og-samfunn/statistikk/arbeidssokere-og-stillinger-statistikk/helt-ledige"' +
-                'target="_blank">NAV</a>'
+            text: 'Chart option: Plain |  Total Companies: ' + total_companies
         }
     });
 });
@@ -127,9 +146,7 @@ document.getElementById('inverted').addEventListener('click', () => {
             polar: false
         },
         subtitle: {
-            text: 'Chart option: Inverted | Source: ' +
-                '<a href="https://www.nav.no/no/nav-og-samfunn/statistikk/arbeidssokere-og-stillinger-statistikk/helt-ledige"' +
-                'target="_blank">NAV</a>'
+            text: 'Chart option: Inverted | Total Companies: ' + total_companies
         }
     });
 });
@@ -141,9 +158,7 @@ document.getElementById('polar').addEventListener('click', () => {
             polar: true
         },
         subtitle: {
-            text: 'Chart option: Polar | Source: ' +
-                '<a href="https://www.nav.no/no/nav-og-samfunn/statistikk/arbeidssokere-og-stillinger-statistikk/helt-ledige"' +
-                'target="_blank">NAV</a>'
+            text: 'Chart option: Polar | Total Companies: ' + total_companies
         }
     });
 });
