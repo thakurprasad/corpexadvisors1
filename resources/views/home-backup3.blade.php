@@ -1656,7 +1656,13 @@
         </section>
         <!-- ==========How-Section Ends Here========== -->
 
-
+<section class="affiliate-programe" id="affiliate">
+    <div class="container">
+        <div class="row">
+            <x-heigh-chart />
+        </div>
+    </div>
+</section>
 
 
         <!--=======Affiliate-Section Starts Here=======-->
