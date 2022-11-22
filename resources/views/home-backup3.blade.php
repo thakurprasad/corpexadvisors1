@@ -68,7 +68,8 @@
                             </p>
                              <div class="col-md-12 my-10 card">   
                                 <div class="card-body">                            
-                                    <x-company-search s="{{ isset($_GET['s']) ? $_GET['s'] : '' }}" />
+                                    <x-company-search s="{{ (Request::input('s')
+) ? Request::input('s') : '' }}" />
                                 </div>
                              </div>
                         </div>

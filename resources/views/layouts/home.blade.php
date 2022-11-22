@@ -11,7 +11,7 @@
 
 <meta content="Corpex Advisors offering legal services like company registration, private limited company, FSSAI License, ISO registration, Trademark Registration, business incorporation by legal experts." name="description">
 <meta content="Corpex Advisors" name="keywords">
-<link href="assets/images/logo/fav.png" rel="shortcut icon" type="image/ico">
+<link href="asset/images/logo/fav.png" rel="shortcut icon" type="image/ico">
 <meta name="google-site-verification" content="7_Huz0xSTXfwuqQPXPz-Xgja8P-SMlqRqK5TJUNjIcY" />
 <link rel=canonical href="index.html" />
 <!-- og Tags -->
@@ -23,17 +23,17 @@
 <meta property="og:image:alt" content="Corpex Advisors - GST Registration, Company Registration, Tax, Audit" />
 
 
-    <link rel="stylesheet" href="{{ url('public/assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ url('public/assets/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ url('public/assets/css/animate.css') }}">
-    <link rel="stylesheet" href="{{ url('public/assets/css/odometer.css') }}">
-    <link rel="stylesheet" href="{{ url('public/assets/css/nice-select.css') }}">
-    <link rel="stylesheet" href="{{ url('public/assets/css/owl.min.css') }}">
-    <link rel="stylesheet" href="{{ url('public/assets/css/jquery-ui.min.css') }}">
-    <link rel="stylesheet" href="{{ url('public/assets/css/magnific-popup.css') }}">
-    <link rel="stylesheet" href="{{ url('public/assets/css/flaticon.css') }}">
-    <link rel="stylesheet" href="{{ url('public/assets/css/main.css') }}">
-    <link rel="stylesheet" href="{{ url('public/assets/css/mystyle.css') }}"> 
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/odometer.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/mystyle.css') }}"> 
 </head>
 
 <body>
@@ -65,19 +65,19 @@
         
     </div>
 
-    <script src="{{ url('public/assets/js/jquery-3.3.1.min.js') }}"></script>
-    <script src="{{ url('public/assets/js/modernizr-3.6.0.min.js') }}"></script>
-    <script src="{{ url('public/assets/js/plugins.js') }}"></script>
-    <script src="{{ url('public/assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ url('public/assets/js/magnific-popup.min.js') }}"></script>
-    <script src="{{ url('public/assets/js/jquery-ui.min.js') }}"></script>
-    <script src="{{ url('public/assets/js/wow.min.js') }}"></script>
-    <script src="{{ url('public/assets/js/odometer.min.js') }}"></script>
-    <script src="{{ url('public/assets/js/viewport.jquery.js') }}"></script>
-    <script src="{{ url('public/assets/js/nice-select.js') }}"></script>
-    <script src="{{ url('public/assets/js/owl.min.js') }}"></script>
-    <script src="{{ url('public/assets/js/paroller.js') }}"></script>
-    <script src="{{ url('public/assets/js/main.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('js/modernizr-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('js/plugins.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('js/wow.min.js') }}"></script>
+    <script src="{{ asset('js/odometer.min.js') }}"></script>
+    <script src="{{ asset('js/viewport.jquery.js') }}"></script>
+    <script src="{{ asset('js/nice-select.js') }}"></script>
+    <script src="{{ asset('js/owl.min.js') }}"></script>
+    <script src="{{ asset('js/paroller.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
 </body>
 
 

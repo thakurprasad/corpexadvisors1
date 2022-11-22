@@ -29,7 +29,7 @@
         
         <div class="col-md-8 my-10">
             <input id="tags" type="text" name="s" class="form-control" 
-            value="<?= isset($s) ? $s : "" ?>" 
+            value="<?= ($s) ? $s : "" ?>" 
             placeholder="Enter Company Name/CIN">
         </div>
 
@@ -68,7 +68,7 @@ $companies_str = implode("|",$arr); // return string
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
        <div class="modal-header">
-        <h5 class="modal-title"><?= (isset($_GET['s']) ? $_GET['s']: 'Company Details') ?></h5>
+        <h5 class="modal-title"><?= (Request::input('s') ? Request::input('s'): 'Company Details') ?></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
