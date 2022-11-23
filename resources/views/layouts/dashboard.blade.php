@@ -670,7 +670,7 @@
     <script src="{{ url('public/assets/js/chart.js') }}"></script>
     <script src="{{ url('public/assets/js/circle-progress.js') }}"></script>
     <script src="{{ url('public/assets/js/main.js') }}"></script>
-
+   @yield('script')
     <script>
         $('.progress1.circle').circleProgress({
             value: .75,
