@@ -193,7 +193,7 @@
 <li class="nav-item dropdown">
 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i></a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">   
-        <li> <a class="nav-link" href="{{ url('/agents/add') }}">{{\Auth::user()->name}} </a></li> 
+        <li> <a class="nav-link" href="{{ url('/dashboard') }}">{{\Auth::user()->name}} </a></li> 
         <li class="">
             <a class="nav-link" href="{{ route('logout') }}"
                onclick="event.preventDefault();
