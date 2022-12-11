@@ -8,6 +8,7 @@ use App\Http\Controllers\TestContoller;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AgentController;
+use App\Http\Controllers\CommandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,7 @@ Auth::routes();
 
 
 Route::get('/home', function () {
-    return view('home');
+    return view('home-backup3');
 });
 
 Route::get('/elastic-search', function () {   
@@ -225,10 +226,17 @@ Route::get('event-based-secretarial-events/change-in-name-clause', function () {
 
 Route::get('date', function () {  return date('d-m-Y H:i:s'); });
 
-Route::get('agents/add', [ AgentController::class, 'add']);
-Route::post('agents/add', [ AgentController::class, 'store']);
 
 
 
+Route::group(['middleware' => ['auth']], function() {
 
+    Route::get('backup/mysql/{_token}', [CommandController::class, 'show']);
+    //Route::get('artisan/{command}/{param}', [CommandController::class, 'show']);
+
+    Route::get('dashboard', [ DashboardController::class, 'index']);
+    Route::get('agents/add', [ AgentController::class, 'add']);
+    Route::post('agents/add', [ AgentController::class, 'store']);
+
+});
 

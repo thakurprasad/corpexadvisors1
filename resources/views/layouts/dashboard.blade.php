@@ -203,8 +203,8 @@
                                                     </span>
                                                 </div>
                                                 <div class="content">
-                                                    <h6 class="title">John Doe</h6>
-                                                    <span class="country">Indonesia</span>
+                                                    <h6 class="title">{{ Auth::user()->name }}</h6>
+                                                    <!-- <span class="country">India</span> -->
                                                 </div>
                                             </a>
                                             <div class="notification-area">
@@ -212,8 +212,8 @@
                                                     <div class="thumb">
                                                         <img src="{{ url('public/assets/images/dashboard/author.png') }}" alt="dashboard">
                                                     </div>
-                                                    <h6 class="title">John Doe</h6>
-                                                    <a href="#mailto:johndoe@gmail.com">Johndoe@gmail.com</a>
+                                                    <h6 class="title">{{ Auth::user()->name }}</h6>
+                                                    <a href="#mailto:johndoe@gmail.com">   {{ Auth::user()->email }}</a>
                                                 </div>
                                                 <div class="author-body">
                                                     <ul>
@@ -224,7 +224,10 @@
                                                             <a href="#0"><i class="fas fa-user-edit"></i>Edit Profile</a>
                                                         </li>
                                                         <li>
-                                                            <a href="#0"><i class="fas fa-sign-out-alt"></i>Log Out</a>
+                                                            <a href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">                
+            <i class="fas fa-sign-out-alt"></i>{{ __('Logout') }}</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -235,6 +238,9 @@
                             </div>
                         </div>
                     </div>
+<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+    @csrf
+</form>                          
                     <div class="dashboard-hero-content text-white">
                         <h3 class="title"><?= (isset($module) ? $module: 'Dashboard' ) ?></h3>
                         <ul class="breadcrumb">

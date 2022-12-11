@@ -31,36 +31,97 @@
             <input id="tags" type="text" name="s" class="form-control" 
             value="<?= ($s) ? $s : "" ?>" 
             placeholder="Enter Company Name/CIN">
+            <input type="hidden" name="company_id" id="company_id">
         </div>
 
         <div class="col-md-4 my-10">
-            <input type="submit" name="search" value="search" class="custom-button"> 
+            <input type="button" name="search" id="search" value="search" class="custom-button"> 
         </div>
         
     </div>
 </form>
 
 <?php
+
+/*
+
 $arr = array();
 foreach($companies as $key=>$r){
     $arr[] = $r->company_name;
 }
 
 $companies_str = implode("|",$arr); // return string 
-
+*/
  ?>
-
   <script>
-
+/*
   $( function() {
-    var comp_str = "<?= $companies_str ?>";
+    var comp_str = "< ?= $companies_str ?>";
     var availableTags = comp_str.split("|");
     $( "#tags" ).autocomplete({
      source: availableTags,
       minLength: 3      
     });
-  } );
-  </script>
+  } ); */
+
+</script>
+
+<script>
+$(function() {
+
+    $( "#tags" ).autocomplete({
+      source: function( request, response ) {
+        $.ajax({
+          url: '<?= url('/api/v1/companies') ?>',
+          dataType: "json",
+          data: {
+            company_name: request.term
+          },
+        success: function (res) {
+            response($.map(res.data, function (row) {            
+                 return {
+                     value: row.company_name,
+                     label: row.company_name,
+                     company_id: row.id,
+                     row_data: row
+
+                 };
+             }));
+            }
+
+        });
+      },
+      minLength: 3,
+
+      select: function( event, row ) {
+        $("#company_id").val(row.item.company_id);
+        console.log(row.item.row_data); 
+            /*  console.log(ui); */
+      },
+
+    });
+  });
+
+
+$("#search").on('click', function(){
+      $.ajax({
+          url: '<?= url('/api/v1/companies') ?>',
+          dataType: "json",
+          data: {
+            company_name: $("#company_id").val()
+          },
+        success: function (res) {
+            $.map(res.data, function (row) {
+                alert('name' + row.company_name);
+             });
+        }
+    });
+
+});
+
+</script>
+
+
 
 
  <button  type="button" id="my_popup" class="custom-button none" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>

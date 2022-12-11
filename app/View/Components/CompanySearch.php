@@ -28,6 +28,7 @@ class CompanySearch extends Component
      */
     public function render()
     {
+     # \DB::enableQueryLog(); // Enable query log
       $company = Company::select(
           'corporate_identification_number',
             'company_name',
@@ -46,9 +47,10 @@ class CompanySearch extends Component
             'email_addr',
             'latest_year_ar',
             'latest_year_bs'
-      )->where('company_name', $this->s)
+      )->where('company_name','LIKE' ,'%'.$this->s.'%')
         ->first();
-       # dd($company);
+      # dd(\DB::getQueryLog()); // Show results of log
+
         if($company){
             if($company->latest_year_ar != 'NA'){
                $company->latest_year_ar = Carbon::parse($company->latest_year_ar)->format('d/m/Y');

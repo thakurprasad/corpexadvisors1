@@ -181,18 +181,35 @@
                                             </li>
                                         </ul>
                                     </li>
-
                                 </ul>
                             </li>
                             <li class="nav-item"><a class="nav-link" href="{{ url('/affiliate') }}">Affiliate</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ url('/contact-us') }}">Contact Us</a></li>
+                           @if(!\Auth::user())
                              <li class="pr-0">
-                                <a href="contact.html" class="custom-button">Join Us</a>
-                            </li>                                    
+                                <a href="{{ url('login') }}" class="custom-button">Join Us</a>
+                            </li> 
+                            @else
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">   
+        <li> <a class="nav-link" href="{{ url('/agents/add') }}">{{\Auth::user()->name}} </a></li> 
+        <li class="">
+            <a class="nav-link" href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
+        </li>
+    </ul>
+</li>  
+                     @endif                              
                         </ul>
                     </div>
                 </nav>
-                                        
+<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+    @csrf
+</form>                               
 
             <div class="header-bar d-lg-none navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span></span>

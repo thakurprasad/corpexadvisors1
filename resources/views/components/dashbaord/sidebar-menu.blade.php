@@ -5,14 +5,14 @@
         <span></span>
     </div>
     <div class="site-header-container">
-        <div class="side-logo">
-            <a href="dashboard.html">
+        <div class="side-logo" style="height:0px;">
+            <a href="{{ url('/') }}">
                 <img src="{{ url('public/assets/images/logo/logo.png') }}" alt="logo">
             </a>
         </div>
         <ul class="dashboard-menu">
             <li>
-                <a href="#" class="active"><i class="flaticon-man"></i>Dashboard</a>
+                <a href="{{ url('/dashboard') }}" class="active"><i class="flaticon-man"></i>Dashboard</a>
             </li>
             <li>
                 <a href="#"><i class="flaticon-coin"></i>Operations</a>

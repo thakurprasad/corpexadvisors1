@@ -102,8 +102,8 @@
     });
 
     
-    console.log(categories_arr);
-    console.log(VAL_ARR);
+ /*   console.log(categories_arr);
+    console.log(VAL_ARR);*/
     const chart = Highcharts.chart('container', {
     title: {
         text: 'Company Registration State Wise Graph upto 31st March 2021'
