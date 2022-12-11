@@ -4,12 +4,12 @@
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
-<figure class="highcharts-figure">
-    <div id="container"></div>
+<figure class="highcharts-figure" style="width:90%">
+    <div id="container" style="width:100%"></div>
    <!--  <p class="highcharts-description">
         <h2>State Wise Companies List Graphical Representation</h2>
     </p> -->
-<div class="">
+<div class="col-md-12">
     <button id="plain" class="btn btn-primary btn-sm">Plain</button>
     <button id="inverted" class="btn-info btn-sm">Inverted</button>
     <button id="polar" class=" btn-success btn-sm">Polar</button>
