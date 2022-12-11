@@ -15,6 +15,7 @@
     <button id="polar" class=" btn-success btn-sm">Polar</button>
 </div>
 <br>
+   <?php /*
     <table class="table">
         <thead>
             <tr>
@@ -32,7 +33,7 @@
         </tbody>
         
     </table>
-
+*/ ?>
 </figure>
 
 <style type="text/css">
