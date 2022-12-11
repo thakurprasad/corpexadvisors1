@@ -6,9 +6,9 @@
 
 <figure class="highcharts-figure">
     <div id="container"></div>
-    <p class="highcharts-description">
+   <!--  <p class="highcharts-description">
         <h2>State Wise Companies List Graphical Representation</h2>
-    </p>
+    </p> -->
 <div class="">
     <button id="plain" class="btn btn-primary btn-sm">Plain</button>
     <button id="inverted" class="btn-info btn-sm">Inverted</button>
