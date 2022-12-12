@@ -127,3 +127,7 @@
     border: none;
     border-bottom: 1px solid #007bff;
 }
+
+.how-item a.custom-button{
+    color: white !important;
+}

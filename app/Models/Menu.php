@@ -100,7 +100,7 @@ class Menu extends Model
 			o/p - http://localhost/corpexadvisors/
 		$menus->home 
 			 o/p - array()
-	 ?>
+	 ? >
     */
     public static function list($parent = ''){
 

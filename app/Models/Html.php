@@ -29,6 +29,9 @@ class Html extends Model
     	if(!isset($arr['url'])){ 
     		$arr['url'] = "#";
     	}
+    	if(!isset($arr['other'])){ 
+    		$arr['other'] = "";
+    	}
     	return view('components/service', [ 'data'=> json_encode($arr) ]);
     }
 }

@@ -118,7 +118,7 @@
     },
     series: [{
         type: 'column',
-        name: 'Unemployed',
+        name: 'Total Registred',
         colorByPoint: true,
        /* data: [5412, 4977, 4730, 4437, 3947, 3707, 4143, 3609,
             3311, 3072, 2899, 2887],*/

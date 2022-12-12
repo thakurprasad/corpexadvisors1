@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\TestContoller;
 use App\Http\Controllers\CompanyController;
@@ -26,9 +27,12 @@ Auth::routes();
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/home', function () {
-    return view('home-backup3');
-});
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/startup-registration/{lavel_1}', [HomeController::class, 'startupRegistrationLabel1']);
+Route::get('/startup-registration/{lavel_1}/{lavel_2}', [HomeController::class, 'startupRegistrationLabel2']);
+
 
 Route::get('/elastic-search', function () {   
         $client = Elasticsearch\ClientBuilder::create()->build();
@@ -63,7 +67,7 @@ Route::get('/1', function () {  return view('home-backup'); });
 Route::get('/2', function () {  return view('home-backup2'); });
 Route::get('/inner', function () {  return view('blank-inner-page'); });
 
-Route::get('/', function () {  return view('home-backup3'); });
+//Route::get('/', function () {  return view('home-backup3'); });
 
 Route::get('about', function () {  return view('about'); });
 

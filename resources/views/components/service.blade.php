@@ -7,8 +7,13 @@
             </div>
         </div>
         <div class="how-content">
-           <a href="{{ $arr->url }}"> <h5 class="title">{{ $arr->title }}</h5> </a>
-            <a href="{{ $arr->url }}">Read More <i class="flaticon-right"></i></a>
+           <a href="{{ $arr->url }}"> <h5 class="title">{!! $arr->title !!}</h5> </a>
+           @if($arr->other)
+           <div class="other-content">
+               {!! $arr->other !!}
+           </div>
+           @endif
+           <a href="{{ $arr->url }}" class="custom-button"> Get Started <i class="flaticon-right"></i></a>
         </div>
     </div>
 </div>
