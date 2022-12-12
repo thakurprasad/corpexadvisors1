@@ -26,6 +26,11 @@
  			{!! $service !!}
  		</div>	
  	</div>
+<style type="text/css">	
+	.how-item a.custom-button{
+	    color: white !important;
+	}
+ </style>
 @endsection  
 
 
