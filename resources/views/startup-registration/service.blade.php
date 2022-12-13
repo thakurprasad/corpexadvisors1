@@ -21,7 +21,7 @@
 
 @section('body')
  	<div class="contener">
- 		<div class="row" style="min-height:600px;"> 
+ 		<div class="row"> 
  			<h1>{!! $service->name !!}</h1>
  			{!! $service !!}
  			<div class="col-md-12 row">
@@ -29,6 +29,7 @@
 <p>Only Scanned Copies are needed, Scanned copy of PAN Card of all directors and Aadhar card/ Voter ID/ Passport/ Driving</p>
 <?php $data = json_decode($service, true); 
 $required_documents = json_decode($data['required_documents'], true);
+$working_process = json_decode($data['working_process'], true);
 
 ?>
 		@foreach($required_documents as $key=>$document)
@@ -39,7 +40,30 @@ $required_documents = json_decode($data['required_documents'], true);
 		@endforeach
  			</div>
 
+
+
  		</div>	
+
+ 		<div class="row col-md-12" style="padding-top:30px;">
+ 			<div class="tab-item" style="display: block;">
+                <div class="faq-wrapper">
+                	@foreach($working_process as $key=>$val)
+                		 <div class="faq-item">
+                        <div class="faq-title">
+                            <h5 class="title">{!! $key !!}</h5>
+                            <span class="right-icon"></span>
+                        </div>
+                        <div class="faq-content">
+                            <p>
+                               {!! $val !!}
+                            </p>
+                        </div>
+                    </div>
+                	@endforeach
+                   
+                </div>
+            </div>
+ 		</div>
  	</div>
 <style type="text/css">	
 	.how-item a.custom-button{
