@@ -10,6 +10,8 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AgentController;
 use App\Http\Controllers\CommandController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\SubscriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,7 +73,10 @@ Route::get('/inner', function () {  return view('blank-inner-page'); });
 
 Route::get('about', function () {  return view('about'); });
 
-Route::get('/contact-us', function () {  return view('contact-us'); });
+Route::get('/contact-us', [ContactController::class, 'index'] );
+Route::post('/contact-us', [ContactController::class, 'store'] );
+Route::post('/subscription', [SubscriptionController::class, 'store'] );
+
 Route::get('/sign-in', function () {  return view('sign-in'); });
 Route::get('/sign-up', function () {  return view('sign-up'); });
 
