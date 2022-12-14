@@ -142,14 +142,6 @@ class CompanyController extends Controller
     }
 
 
-
-
-
-
-
-
-
-
     public function store(Request $request)
     {
         //
@@ -224,3 +216,5 @@ class CompanyController extends Controller
         //
     }
 }
+
+
