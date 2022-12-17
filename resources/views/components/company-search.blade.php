@@ -26,6 +26,7 @@
 
 <form method="get">
     <div class="row col-md-12">
+        @csrf
         
         <div class="col-md-8 my-10">
             <input id="tags" type="text" name="s" class="form-control" 
@@ -69,13 +70,14 @@ $companies_str = implode("|",$arr); // return string
 <script>
 $(function() {
 
+
     $( "#tags" ).autocomplete({
       source: function( request, response ) {
         $.ajax({
           url: '<?= url('/api/v1/companies') ?>',
           dataType: "json",
-          data: {
-            company_name: request.term
+       data: {
+            company_name: request.term            
           },
         success: function (res) {
             response($.map(res.data, function (row) {            
@@ -105,15 +107,18 @@ $(function() {
 
 $("#search").on('click', function(){
       $.ajax({
-          url: '<?= url('/api/v1/companies') ?>',
+          url: '<?= url('/api/v1/company') ?>', 
           dataType: "json",
           data: {
-            company_name: $("#company_id").val()
+            company_id: $("#company_id").val()
           },
         success: function (res) {
-            $.map(res.data, function (row) {
-                alert('name' + row.company_name);
+            var html_data = '';
+            $.each(res.data, function (index, value) {
+                html_data += '<div class="row"><div class="col-md-4 col-sm-4"><b>'+index+'</b></div><div class="col-md-8 col-sm-8">'+value+'</div></div>'                
              });
+            $("#company_data_show").html(html_data);
+            $("#my_popup").click();    
         }
     });
 
@@ -124,7 +129,7 @@ $("#search").on('click', function(){
 
 
 
- <button  type="button" id="my_popup" class="custom-button none" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+<button  type="button" id="my_popup" class="custom-button none" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -135,7 +140,7 @@ $("#search").on('click', function(){
         </button>
       </div>
       <div class="modal-body">
-            <div class="table-responsive-sm"> 
+            <div class="table-responsive-sm" id="company_data_show"> 
             @if(!empty($data))
                 <?php
                 $arr = json_decode($data, true);

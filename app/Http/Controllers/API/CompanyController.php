@@ -12,12 +12,50 @@ use Validator;
 
 class CompanyController extends BaseController
 {
+    public function getCompany(Request $request)
+    {
+        $validator = Validator::make($request->input(), [
+            'company_id'  => 'required'
+        ]);   
+        if($validator->fails()){
+            return $this->sendError('Validation Error.', $validator->errors());       
+        }        
+        $company = Company::select(
+            'corporate_identification_number',
+            'company_name',
+            'company_status',
+            'company_class',
+            'company_category',
+            'company_sub_category',
+            'date_of_registration',
+            'registered_state',
+            'authorized_cap',
+            'paidup_capital',
+            'industrial_class',
+            'principal_business_activity_as_per_cin',
+            'registered_office_address',
+            'registrar_of_companies',
+            'email_addr',
+            'latest_year_ar',
+            'latest_year_bs'
+        );
+        $company =  $company->where( 'id', $request->company_id)->first();
 
+        $arr = json_decode($company, true);
+        $DATA = [];
+         foreach( $arr as $key => $val) { 
+            $key = ucwords(str_replace("_", " ", $key));
+            $DATA[$key] = $val;
+        }
+
+       return $this->sendSuccess($DATA, 'Companies data fetched successfully..');
+        
+    }
 
     public function getCompanies(Request $request)
     {
          $validator = Validator::make($request->input(), [
-            'company_name'  => 'required|min:4'
+           # 'company_name'  => 'required|min:4'
         ]);
    
         if($validator->fails()){
@@ -31,7 +69,10 @@ class CompanyController extends BaseController
            $companies =  $companies->where( 'company_name', 'LIKE', '%' . $request->company_name . '%' );
         }
 
-         $companies =  $companies->orderBy('company_name', 'ASC')->take(20)->get();
+        $companies =  $companies->orderBy('company_name', 'ASC')->take(20)->get();   
+
+
+         
     //  dd(\DB::getQueryLog()); 
        return $this->sendSuccess($companies, 'Companies data fetched successfully..');
         

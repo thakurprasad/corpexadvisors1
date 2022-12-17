@@ -25,6 +25,7 @@ Route::middleware('api')->group(function () {   # root/api
     Route::group(['prefix' => 'v1'] , function () {   # root/api/v1/{url}
         
         Route::any('companies', [CompanyController::class, 'getCompanies']);
+        Route::any('company', [CompanyController::class, 'getCompany']);
     
     });
 
