@@ -5,12 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\ServiceCategory;
 use Illuminate\Http\Request;
 use Helper;
+use DB;
+
 
 class ServiceController extends Controller
 {
     
     public function index(){
-        $data = ServiceCategory::select('*')->paginate(10);
+         $data = ServiceCategory::select('service_categories.*', 'sc.name as parent_name')
+        ->leftJoin(
+            DB::raw('service_categories sc'), 
+            'sc.id', '=', 'service_categories.parent_id')
+        ->paginate(10);
         return view('admin.services.index', ['data'=>$data]);
     }
 
@@ -45,9 +51,21 @@ class ServiceController extends Controller
 
     public function update(Request $request ,$col, $id){
      #   return $request->input();
-        $required_documents = array_values($request->input('required_documents'));
-        $working_process = array_values($request->input('working_process'));
-        $details = array_values($request->input('details'));
+        if($request->has('details')){
+            $required_documents = array_values($request->input('required_documents'));
+        }else{
+            $required_documents = [];
+        }
+        if($request->has('details')){
+            $working_process = array_values($request->input('working_process'));
+        }else{
+            $working_process = [];
+        }
+        if($request->has('details')){
+            $details = array_values($request->input('details'));
+        }else{
+            $details = [];
+        }
 
         $result_data = json_encode($request->result_data);
         ServiceCategory::where('id',$id)

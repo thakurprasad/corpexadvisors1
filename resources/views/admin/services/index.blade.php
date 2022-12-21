@@ -12,9 +12,10 @@
    		<tr>
    			<th>id</th>
    			<th>Name</th>
+   			<th>Parent</th>
    			<th>Price</th>
    			<th>Result Data</th>
-   			<th>required_documents</th>
+   			<th>Action</th>
    		</tr>
    	</thead>
    	<tbody>
@@ -22,9 +23,10 @@
    		<tr>
    			<td>{!! $row->id !!}</td>
    			<td>{!! $row->name !!}</td>
+   			<td>{!! $row->parent_name !!}</td>
    			<td>{!! $row->price !!}</td>
-   			<td>{!! $row->result_data !!} <a href="{{ url('admin/service/result_data/'.$row->id) }}" target="_blank">Edit</a> </td>
-   			<td>{!! $row->required_documents !!}</td>
+   			<td>{!! $row->result_data !!}  </td>
+   			<td><a class="btn-info btn-sm btn" href="{{ url('admin/service/category/'.$row->id) }}" target="_blank">Edit</a></td>
 
 	   	</tr>
 	   @endforeach	
