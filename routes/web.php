@@ -240,10 +240,6 @@ Route::get('date', function () {  return date('d-m-Y H:i:s'); });
 
 
 Route::group(['middleware' => ['auth']], function() {
-
-    Route::get('backup/mysql/{_token}', [CommandController::class, 'show']);
-    //Route::get('artisan/{command}/{param}', [CommandController::class, 'show']);
-
     Route::get('dashboard', [ DashboardController::class, 'index']);
     Route::get('agents/add', [ AgentController::class, 'add']);
     Route::post('agents/add', [ AgentController::class, 'store']);
