@@ -10,6 +10,9 @@
 
    {!! Form::model($data, array('url' => 'admin/service/service/'.$data->id ,'method'=>'POST',  'enctype'=>'multipart/form-data' )) !!} 
    @csrf
+	    <div class="row">
+		  	<div class="col-md-8">
+		   	
    	<div class="container card">
    		<br><h5>Result Data</h5><br>
    		<div class="col-lg-6" id="input_area">
@@ -21,8 +24,19 @@
 	          </div>
 	          @endforeach
 	       </div>
+	       <div class="col-lg-3">
+	       	
+	       </div>
 	        <a style="cursor: pointer;padding-right: 30%;"  onclick="new_row()">Add more</a>
-	    </div>
+	    </div> 	
+		   </div>
+		    <div class="col-md-4">
+		    	<div class="container card" style="padding-top: 20px; padding-bottom: 40px;">
+		    	<h5>Price</h5>
+		       	<input type="text" class="form-control" name="price" placeholder="Enter Price in Rs." value="{{ $data->price }}">
+		       </div>
+		    </div>
+		 </div>
 
 	    <div class="container card">
    		<br><h5>Required Documents</h5><br>
@@ -126,26 +140,22 @@
 
 
 	{!! Form::close() !!}
-
-<!-- <script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>   -->
+<?php /*
+<textarea name="ckeditor_1"></textarea>
+<textarea name="ckeditor_2"></textarea>
+<script src="https://cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>  
+<!-- https://www.c-sharpcorner.com/blogs/rich-textbox-editor-htmljavascript -->
 <script>  
-	/*
-	var ck =  {{ $m }};
-	
-	for(var ck = 0; i < ck.length; i++) {
-		CKEDITOR.replace('ckeditor_'+i);
-	}
-   
-   //CKEDITOR.replace('ckeditor_2');  
+    CKEDITOR.replace('ckeditor_1');  
+    CKEDITOR.replace('ckeditor_2');  
   
-   function getData() {  
+    function getData() {  
         //Get data written in first Editor   
         var editor_data = CKEDITOR.instances['ckeditor_1'].getData();  
         //Set data in Second Editor which is written in first Editor  
         CKEDITOR.instances['ckeditor_2'].setData(editor_data);  
-    } 
-*/
-</script> 	
+    }  
+</script> */ ?> 	
 <style type="text/css">
 .container.card {
     margin-bottom: 20px;

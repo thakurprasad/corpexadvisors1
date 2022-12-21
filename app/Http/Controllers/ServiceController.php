@@ -56,6 +56,7 @@ class ServiceController extends Controller
                             'required_documents' => json_encode($required_documents),
                             'working_process' => json_encode($working_process),
                             'details' => json_encode($details),
+                            'price' => $request->price
                             ]);
         return back()->withSuccess('Data updated Successfully');
     }
