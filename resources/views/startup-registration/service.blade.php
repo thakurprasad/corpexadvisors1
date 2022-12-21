@@ -22,8 +22,8 @@
 @section('body')
 <?php 
 	$data = json_decode($service, true); 
-	$required_documents = json_decode($data['required_documents'], true);
-	$working_process = json_decode($data['working_process'], true);
+	$required_documents = json_decode($data['required_documents']);
+	$working_process = json_decode($data['working_process']);
 ?>
 <section class="faq-section padding-top padding-bottom">
 <div class="contener">
@@ -41,10 +41,10 @@
         </div>
     </div>
  	<div class="row"> 
-			@foreach($required_documents as $key=>$document)
+			@foreach($required_documents as $key => $row)
 				<div class="col-md-3">
-					<h6> {!! $key !!}</h6>
-					<p>{!! $document !!}</p>
+					<h6> {!! $row->document !!}</h6>
+					<p>{!! $row->document_desc !!}</p>
 				</div>
 			@endforeach
 	</div>	
@@ -68,16 +68,16 @@
     </div>
     <div class="faq-wrapper">
     	<?php  $i=0; ?>
-    	@foreach($working_process as $key=>$val)
+    	@foreach($working_process as $key => $row)
     	<?php  $i++  ?>
         <div class="faq-item <?= ($i == 1 ? 'open' : '' ) ?> ">
             <div class="faq-title">
-                <h5 class="title">{!! $key !!}</h5>
+                <h5 class="title">{!! $row->title !!}</h5>
                 <span class="right-icon"></span>
             </div>
             <div class="faq-content" style="display: <?= ($i ==1 ? 'block' : 'none' ) ?> ;">
                 <p>
-                    {!! $val !!}
+                    {!! $row->description !!}
                 </p>
             </div>
         </div>

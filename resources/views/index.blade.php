@@ -1672,6 +1672,26 @@
     </div>
 </section>
 
+<section class="resent-searched-companies">
+    <h4>Related Searched companies list</h4>
+    <div class="col-lg-12">
+    <div class="mission-wrapper owl-theme owl-carousel" id="company_carousel">
+        <div class="mission-item"><!-- 
+            <div class="mission-thumb">
+                <img src="{{ asset('images/mission/1.png') }}" alt="mission">
+            </div> -->
+            <div class="mission-content">
+                <h5 class="title">Low invest</h5>
+                <p>
+                    Praesent sagittis nibh vehicula diam tesque
+                </p>
+                <a href="#0">Learn More <i class="flaticon-right-arrow"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
 
         <!--=======Affiliate-Section Starts Here=======-->
         <section class="affiliate-programe" id="affiliate">

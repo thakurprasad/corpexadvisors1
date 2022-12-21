@@ -13,6 +13,7 @@ use App\Http\Controllers\CommandController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SubscriptionController;
 
+include __DIR__ . '/admin.php';
 /*
 |--------------------------------------------------------------------------
 | Web Routes

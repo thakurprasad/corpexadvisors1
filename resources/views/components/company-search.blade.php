@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
+<!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <style type="text/css">
@@ -104,13 +104,12 @@ $(function() {
     });
   });
 
-
-$("#search").on('click', function(){
-      $.ajax({
+function getCompanyPopup(company_id){
+     $.ajax({
           url: '<?= url('/api/v1/company') ?>', 
           dataType: "json",
           data: {
-            company_id: $("#company_id").val()
+            company_id: company_id
           },
         success: function (res) {
             var html_data = '';
@@ -121,7 +120,11 @@ $("#search").on('click', function(){
             $("#my_popup").click();    
         }
     });
+}
 
+$("#search").on('click', function(){
+    var company_id = $("#company_id").val();    
+    getCompanyPopup(company_id);
 });
 
 </script>
@@ -134,7 +137,7 @@ $("#search").on('click', function(){
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
        <div class="modal-header">
-        <h5 class="modal-title"><?= (Request::input('s') ? Request::input('s'): 'Company Details') ?></h5>
+        <h5 class="modal-title">Company Details</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

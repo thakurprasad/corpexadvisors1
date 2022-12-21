@@ -2,6 +2,7 @@
 namespace App\Helper;
 
 use App\Models\Bank;
+use App\Models\ServiceCategory;
 use DB;
 
 class Helper
@@ -116,4 +117,34 @@ class Helper
         }
         return $BANKs_ARR;
     }
+
+    public static function getServiceName($id){    
+        return $row = ServiceCategory::select('name', 'parent_id')
+                ->where('id',$id)->first();      
+        
+    }
+
+    public static function parent_tree($service_cat_id){        
+        $row1 = ServiceCategory::select('name', 'parent_id')
+                ->where('id',$service_cat_id)->first();
+        $P[] = $row1->name;
+        if($row1->parent_id > 0){
+            $s = Helper::getServiceName($row1->parent_id);
+            $P[] = $s->name;
+            if($s->parent_id > 0){
+                $s2 = Helper::getServiceName($s->parent_id);
+                $P[] = $s2->name;
+                if($s2->parent_id > 0){
+                    $s3 = Helper::getServiceName($s->parent_id);
+                    $P[] = $s3->name;
+                }
+            }
+        }else{
+            $P[] = '';
+        }
+
+        return $P;
+
+    }
+
 }

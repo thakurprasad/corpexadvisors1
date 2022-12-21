@@ -7,13 +7,39 @@ use App\Models\Company;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Http;
 use App\Models\ApiUrl;
-
+use Session;
 use Validator;
+use Illuminate\Http\Response;
+
+use Cookie;
+
 
 class CompanyController extends BaseController
 {
+
+     public function setCookie(Request $request) {
+        #return $request->company_id;
+        #return $request->cookie('ids');         
+         $old = ($request->cookie('ids') ? json_decode($request->cookie('ids'),true) :  [1]  );                 
+         #$old = (Cookie::get('ids') ? json_decode(Cookie::get('ids'),true) :  [1]  );                 
+          array_push($old, $request->company_id);         
+          $minutes = 100;
+          
+         #  Cookie::make('ids', collect($old), $minutes);
+          # dd( Cookie::get('ids') );
+
+          $response = new Response('success'); 
+          $response->withCookie(cookie('ids', collect($old) , $minutes));
+          return $response;
+          
+
+    }
+
     public function getCompany(Request $request)
     {
+
+       // $ids =  $this->setCookie($request);  
+
         $validator = Validator::make($request->input(), [
             'company_id'  => 'required'
         ]);   
@@ -39,7 +65,8 @@ class CompanyController extends BaseController
             'latest_year_ar',
             'latest_year_bs'
         );
-        $company =  $company->where( 'id', $request->company_id)->first();
+        $company =  $company->where( 'id', $request->company_id)->first();        
+
 
         $arr = json_decode($company, true);
         $DATA = [];
