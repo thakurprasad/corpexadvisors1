@@ -245,7 +245,7 @@
                         <h3 class="title"><?= (isset($module) ? $module: 'Dashboard' ) ?></h3>
                         <ul class="breadcrumb">
                             <li>
-                                <a href="index.html">Home</a>
+                                <a href="{{ url('admin/') }}">Dashboard</a>
                             </li>
                             <li>
                                 <?= (isset($title) ? $title: '' ) ?>

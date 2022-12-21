@@ -1,18 +1,17 @@
-@extends('admin.layouts.dashboard', ['title'=> $breadcrum, 'module'=>'Home'])
+@extends('admin.layouts.dashboard', ['title'=> $breadcrum, 'module'=>'Edit Services '. $data->name])
 
 @section('body')
 	
       
 <div class="container-fluid">
-   @include('alert.message')     
-   <h3>Edit - {{  $data->name }}</h3>
-  	
+   <div class="container"> 
+   		@include('alert.message')   		
+   </div>
 
    {!! Form::model($data, array('url' => 'admin/service/service/'.$data->id ,'method'=>'POST',  'enctype'=>'multipart/form-data' )) !!} 
    @csrf
 	    <div class="row">
-		  	<div class="col-md-8">
-		   	
+		  	<div class="col-md-8">		   	
    	<div class="container card">
    		<br><h5>Result Data</h5><br>
    		<div class="col-lg-6">

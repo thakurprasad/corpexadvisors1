@@ -11,12 +11,17 @@ use DB;
 class ServiceController extends Controller
 {
     
-    public function index(){
+    public function index(Request $request){
          $data = ServiceCategory::select('service_categories.*', 'sc.name as parent_name')
         ->leftJoin(
             DB::raw('service_categories sc'), 
-            'sc.id', '=', 'service_categories.parent_id')
-        ->paginate(10);
+            'sc.id', '=', 'service_categories.parent_id');
+        if($request->has('parent_id')){
+            $data = $data->where('service_categories.parent_id', $request->parent_id);
+        }
+        $data = $data->paginate(10);
+
+
         return view('admin.services.index', ['data'=>$data]);
     }
 
@@ -70,13 +75,13 @@ class ServiceController extends Controller
         $result_data = json_encode($request->result_data);
         ServiceCategory::where('id',$id)
                         ->update([
-                            'result_data' => $result_data   ,
+                            'result_data' => $result_data,
                             'required_documents' => json_encode($required_documents),
                             'working_process' => json_encode($working_process),
                             'details' => json_encode($details),
                             'price' => $request->price
                             ]);
-        return back()->withSuccess('Data updated Successfully');
+        return redirect()->back()->with('message', 'Data updated Successfully');
     }
 
 }
