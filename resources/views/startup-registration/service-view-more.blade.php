@@ -142,6 +142,9 @@
 	.how-item a.custom-button{
 	    color: white !important;
 	}
+    .row.more-details {
+    padding-bottom: 40px;
+}
  </style>
 @endsection  
 
