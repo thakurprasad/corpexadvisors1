@@ -34,7 +34,7 @@
  					$name = $v['name'] ; #. ' (' . $v['id'] . ')';
  					$url = url('/startup-registration/business-registrations/'.$v['slug']);
  					$result_data = json_decode($v['result_data']);
- 					$other = "<b>Rs. </b>" . $v['price'] . '<br>
+ 					$other = "<b>Rs. </b><span class='price'>" . number_format($v['price']) . '</span><br>
  								'.implode(" + ", $result_data).' <br><br> ';
  					echo \App\Models\Html::service( [ 
  						'title'=> $name , 
@@ -48,7 +48,20 @@
  		</div>	
  	</div>
  	<style type="text/css">
- 		service-contener {
+ 		
+		.service-contener .how-item:hover {
+		    color: white;
+		}
+		
+		span.price {
+		    font-size: 45px;
+		    color: green;
+		}
+		span.price:hover{
+			color: white;
+		}
+
+ 		.service-contener {
 		    margin-bottom: 10px;
 		    border-bottom: 1px solid #cccc;
 		}

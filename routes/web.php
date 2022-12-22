@@ -35,6 +35,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/startup-registration/{lavel_1}', [HomeController::class, 'startupRegistrationLabel1']);
 Route::get('/startup-registration/{lavel_1}/{lavel_2}', [HomeController::class, 'startupRegistrationLabel2']);
+Route::get('/startup-registration/{lavel_1}/{lavel_2}/view-more-details', [HomeController::class, 'startupRegistrationLabel3']);
 
 
 Route::get('/elastic-search', function () {   

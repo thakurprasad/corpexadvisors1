@@ -57,5 +57,12 @@ class HomeController extends Controller
         return view('startup-registration.service', ['service'=>$row, 'lavel_1'=>$lavel_1]);
     }
 
+    public function startupRegistrationLabel3($lavel_1, $lavel_2)
+    {   
+        $lavel_1 = ServiceCategory::where('slug',$lavel_1)->first();
+        $row = ServiceCategory::where('slug',$lavel_2)->first();
+        return view('startup-registration.service-view-more', ['service'=>$row, 'lavel_1'=>$lavel_1]);
+    }
+
 
 }

@@ -16,6 +16,7 @@
 	        <li>
 	            {{ $service->name }}
 	        </li> 
+            <li>View More</li>
     </ul>
 @endsection
 
@@ -24,7 +25,8 @@
 	$data = json_decode($service, true); 
     $result_data  = json_decode($data['result_data']);
 	$required_documents = json_decode($data['required_documents']);
-	$working_process = json_decode($data['working_process']);
+    $working_process = json_decode($data['working_process']);
+	$details = json_decode($data['details']);
 ?>
 
 
@@ -35,7 +37,7 @@
                     <div class="section-header">
                         <!-- <span class="cate">You have questions</span> -->
                         <h2 class="title">
-                            What Will You get
+                            {{ $service->name }}
                         </h2>
                         <p class="mw-100">
                             
@@ -43,15 +45,31 @@
                     </div>
                 </div>
             </div>
-            <div class="row"> 
-                <?php foreach ($result_data as $key => $value) {?>
-                    <div class="col-md-4"> <i class="fa fa-check" aria-hidden="true"></i> {!! $value !!}</div>    
-                <?php } ?>
+            
+                <?php 
+                if(count($details)>0){
+                foreach ($details as $key => $row) { ?>
+                <div class="row more-details"> 
+                    <div class="col-md-12 title">
+                    <h4> <i class="fa fa-check" aria-hidden="true"></i> 
+                       @if($row->title) 
+                        {!! $row->title !!}</h4>                      
+                       @endif 
+                    </div>    
+                    <div class="col-md-12 description">
+                        @if($row->description)
+                        <p>{!! $row->description !!}</p>
+                        @endif
+                    </div>
+                </div>
+                <?php } 
+            }else{
+                echo "No More Details ";
+            } ?>
                 
-            </div>
         </div>
 </section>
-
+<?php /*
 <section class="faq-section padding-top padding-bottom">
 <div class="contener">
  	<div class="row justify-content-center">
@@ -94,15 +112,15 @@
         </div>
     </div>
     <div class="faq-wrapper">
-    	<?php  $i=0; ?>
+    	< ?php  $i=0; ? >
     	@foreach($working_process as $key => $row)
-    	<?php  $i++  ?>
-        <div class="faq-item <?= ($i == 1 ? 'open' : '' ) ?> ">
+    	< ?php  $i++  ? >
+        <div class="faq-item <?= ($i == 1 ? 'open' : '' ) ? > ">
             <div class="faq-title">
                 <h5 class="title">{!! $row->title !!}</h5>
                 <span class="right-icon"></span>
             </div>
-            <div class="faq-content" style="display: <?= ($i ==1 ? 'block' : 'none' ) ?> ;">
+            <div class="faq-content" style="display: <?= ($i ==1 ? 'block' : 'none' ) ? > ;">
                 <p>
                     {!! $row->description !!}
                 </p>
@@ -111,10 +129,12 @@
         @endforeach
     </div>
 </div>
+*/ ?>
 
  </section>		
  <section style="text-align:center;">
-    <a class="btn btn-info btn-lg" href="{{ url(Request::path(). '/view-more-details') }}">View More Details</a>    
+    <?php $url = str_replace("/view-more-details", "", Request::path()); ?>
+    <a class="btn btn-danger btn-lg" href="{{ url($url) }}"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a>    
  </section>
  
 
