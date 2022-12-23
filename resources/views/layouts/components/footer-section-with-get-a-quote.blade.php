@@ -1,31 +1,10 @@
-
+<!-- ==========Footer-Section Starts Here========== -->
 <footer class="footer-section">
     <div class="newslater-section padding-bottom">
         <div class="container">
             <div class="newslater-area">
                 <div class="newslater-content padding-bottom padding-top">
-                    <span class="cate">SUBSCRIBE TO Corpex Advisors</span>
-                    <h3 class="title">To Get Exclusive Benefits</h3>
-                    <form class="newslater-form" method="POST" action="{{ url('subscription') }}">
-                        @csrf
-                        <input type="text" placeholder="Enter Your Email Here" name="email" required>
-                        <button type="submit">Subscribe</button>
-                          @if(session()->has('success'))
-                            <div class="form-group">
-                                <span style="color: green;">{{ session()->get('success') }}</span>
-                            </div>
-                            @endif
-                            @if($errors->any())
-                            <div class="form-group" style="color: red; line-height: 1;">
-                                <p>There were some problems with your input.</p>
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                              </div>
-                            @endif
-                    </form> 
+                    @include('components.get-a-quote')                      
                 </div>
                 <div class="newslater-thumb">
                     <img src="{{ url('public/assets/images/footer/footer.png') }}" alt="footer">

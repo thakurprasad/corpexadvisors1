@@ -13,6 +13,7 @@ use App\Http\Controllers\CommandController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SubscriptionController;
 
+
 include __DIR__ . '/admin.php';
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +44,9 @@ Route::get('/elastic-search', function () {
         var_dump($client);
 });
 
-
+Route::get('menu', function(){
+    return json_encode(Helper::getAllMenuList());
+});
 
 
 Route::get('/cron-status', 

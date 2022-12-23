@@ -21,7 +21,8 @@
 @endsection
 
 @section('body')
-<?php 
+<?php
+
 	$data = json_decode($service, true); 
     $result_data  = json_decode($data['result_data']);
 	$required_documents = json_decode($data['required_documents']);
@@ -136,8 +137,6 @@
     <?php $url = str_replace("/view-more-details", "", Request::path()); ?>
     <a class="btn btn-danger btn-lg" href="{{ url($url) }}"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a>    
  </section>
- 
-
 <style type="text/css">	
 	.how-item a.custom-button{
 	    color: white !important;

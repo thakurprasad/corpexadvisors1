@@ -147,4 +147,27 @@ class Helper
 
     }
 
+    public static function getAllMenuList(){
+
+    $p1 = ServiceCategory::select('id', 'name', 'slug', 'parent_id')
+        ->where('parent_id', 0)->get();
+        $DATA = [];
+        foreach ($p1 as $key => $r1) {
+            $DATA[$r1->name] = json_decode($r1, true);
+
+            $p2 = ServiceCategory::select('id', 'name', 'slug', 'parent_id')
+            ->where('parent_id', $r1->id)->get();
+                foreach ($p2 as $key => $r2) {
+                    $DATA[$r1->name]['childrens'][$r2->name] = json_decode($r2, true);
+                    
+                    $p3 = ServiceCategory::select('id', 'name', 'slug', 'parent_id')
+                            ->where('parent_id', $r2->id)->get();
+                    $DATA[$r1->name]['childrens'][$r2->name]['childrens'] = json_decode($p3, true);
+                }        
+         }
+        return $DATA; 
+    }
+
+
+
 }

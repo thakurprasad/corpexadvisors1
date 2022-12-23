@@ -1,7 +1,7 @@
 @extends('layouts.inner-page')
 
 @section('page-title')
-	{{ __('One Person Company') }}
+	{{ $parent_category_name }}
 @endsection
 
 @section('breadcrumb')

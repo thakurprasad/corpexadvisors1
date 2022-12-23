@@ -53,31 +53,7 @@
 
                              <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">STARTUP REGISTRATION </a>
-
-<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">                                     
-    <?php $menus = Helper::getAllMenuList(); 
-    foreach ($menus as $key => $m1) {
-        $url = url('startup-registration');
-    ?>
-    <li class="dropdown-submenu">
-        <a class="dropdown-item dropdown-toggle" href="{{ $url .'/'.$m1['slug'] }}">{{ $m1['name'] }}</a>
-        <ul class="dropdown-menu">        
-            <?php foreach ($m1['childrens'] as $key2 => $m2) { ?>
-            <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="{{ $url .'/'. $m1['slug'] }}">{{$m2['name']}}</a>
-                <ul class="dropdown-menu">
-                    <?php foreach ($m2['childrens'] as $key3 => $m3) { ?>
-                    <li><a class="dropdown-item" href="{{ $url . '/' . $m1['slug'] . '/' .$m3['slug']  }}">{{ $m3['name'] }}</a></li>
-                    <?php } ?>
-                </ul>
-            </li>
-            <?php } ?>
-        </ul>
-    </li>
-    <?php } ?>
-</ul>
-
-
-                               <!--  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> 
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> 
                                    
                                     <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Business Registrations</a>
                                         <ul class="dropdown-menu"> 
@@ -205,7 +181,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                </ul> -->
+                                </ul>
                             </li>
                             <li class="nav-item"><a class="nav-link" href="{{ url('/affiliate') }}">Affiliate</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ url('/contact-us') }}">Contact Us</a></li>

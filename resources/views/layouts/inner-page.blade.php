@@ -1,3 +1,4 @@
+<!-- ==========Footer-Section Starts Here========== -->
 <!DOCTYPE html>
 <html lang="en"> 
 <head>
@@ -89,7 +90,7 @@
             @yield('body')       
         </div>
         <!-- ==========Footer-Section Starts Here========== -->
-        @include('layouts/components/footer-section-with-subscribe')
+        @include('layouts/components/footer-section-with-get-a-quote')
         <!-- ==========Footer-Section Ends Here========== -->
 
         
