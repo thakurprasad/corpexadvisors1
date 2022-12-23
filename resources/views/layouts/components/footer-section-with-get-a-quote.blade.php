@@ -32,102 +32,32 @@
     </div>
     <div class="col-md-12" style="color: white;">
         <div class="footer-top footer">
-            <!--<div class="logo col-md-3">
-                <a href="index.html">
-                    <img src="{{ url('public/assets/images/logo/footer-logo.png') }}" alt="logo">
-                </a>
-            </div> -->
+            
+            <div class="col-md-12 row startup-registration">
+            <?php $menus = Helper::getAllMenuList(); 
+            $i = 0;
+            foreach ($menus as $key => $m1) {
+                $url = url('startup-registration');
+                $i++;
+            ?>
+            <div class="col-md-2 {{ ($i<3 ? ' col-lg-3 ' : '' ) }} ">
+                <?php /*<p class="parent-main-menu"><a href="{{ $url .'/'.$m1['slug'] }}">{{ $m1['name'] }}</a></p> */ ?>
+                
+                <div class="row">
+                    <?php foreach ($m1['childrens'] as $key2 => $m2) { ?>
+                <p class="sub-menu"><a href="{{ $url .'/'. $m1['slug'] }}">{{$m2['name']}}</a></p>
+                        <ul class="col-md-12">
+                            <?php foreach ($m2['childrens'] as $key3 => $m3) { ?>
+                            <li><a href="{{ $url . '/' . $m1['slug'] . '/' .$m3['slug']  }}">{{ $m3['name'] }}</a></li>
+                            <?php } ?>
+                        </ul>            
+                    <?php } ?>
+                </div>
+            </div>
+            <?php } ?>
+        </div>          
 
-            <div class="col-md-2 col-lg-3">
-                <h3>Business Registrations </h3>
-                <ul>
-                    @foreach(\App\Models\Menu::list('business_registrations') as $key=> $menu )
-                        <li><a href="{{ $menu->url }}">{{ $menu->name }}</a> </li>
-                    @endforeach
-                </ul>
-                <h3>Fssai & Eating License </h3>
-                <ul>
-                     @foreach(\App\Models\Menu::list('fssai_and_eating_license') as $key=> $menu )
-                        <li><a href="{{ $menu->url }}">{{ $menu->name }}</a> </li>
-                    @endforeach
-                </ul>
-            </div>
-            <div class="col-md-2 col-lg-3">
-                <h3>Government Registrations</h3>
-                 <ul>
-                    @foreach(\App\Models\Menu::list('government_registrations') as $key=> $menu )
-                        <li><a href="{{ $menu->url }}">{{ $menu->name }}</a> </li>
-                    @endforeach
-                </ul>
-                <h3>Government Licenses</h3>
-                <ul>
-                     @foreach(\App\Models\Menu::list('government_licenses') as $key=> $menu )
-                        <li><a href="{{ $menu->url }}">{{ $menu->name }}</a> </li>
-                    @endforeach
-                </ul>
-            </div>
-            <div class="col-md-2">
-                <h3>Trademark IPR</h3>
-                 <ul>
-                    @foreach(\App\Models\Menu::list('ipr') as $key=> $menu )
-                        <li><a href="{{ $menu->url }}">{{ $menu->name }}</a> </li>
-                    @endforeach
-                </ul>
-                <h3>Trademark NGO</h3>
-                <ul>
-                     @foreach(\App\Models\Menu::list('ngo') as $key=> $menu )
-                        <li><a href="{{ $menu->url }}">{{ $menu->name }}</a> </li>
-                    @endforeach
-                </ul>
-            </div>
-            <div class="col-md-2">
-                <h3>Business Conversion</h3>
-                 <ul>
-                    @foreach(\App\Models\Menu::list('business_conversion') as $key=> $menu )
-                        <li><a href="{{ $menu->url }}">{{ $menu->name }}</a> </li>
-                    @endforeach
-                </ul>
-                <h3>Business Closure </h3>
-                <ul>
-                     @foreach(\App\Models\Menu::list('business_closure') as $key=> $menu )
-                        <li><a href="{{ $menu->url }}">{{ $menu->name }}</a> </li>
-                    @endforeach
-                </ul>
-            </div>
-            <div class="col-md-2">
-
-
-                <h3>Secretarial & Events</h3>
-                 <ul>
-                    @foreach(\App\Models\Menu::list('secretarial_secretarial_and_events') as $key=> $menu )
-                        <li><a href="{{ $menu->url }}">{{ $menu->name }}</a> </li>
-                    @endforeach
-                </ul>
-                <h3>Event Based Secretarial & Events </h3>
-                <ul>
-                     @foreach(\App\Models\Menu::list('event_based_secretarial_and_events') as $key=> $menu )
-                        <li><a href="{{ $menu->url }}">{{ $menu->name }}</a> </li>
-                    @endforeach
-                </ul>
-            </div>           
-            <!--<ul class="links">
-                <li>
-                    <a href="#0">About</a>
-                </li>
-                <li>
-                    <a href="#0">Affiliates</a>
-                </li>
-                <li>
-                    <a href="#0">Plans</a>
-                </li>
-                <li>
-                    <a href="#0">FAQ</a>
-                </li>
-                <li>
-                    <a href="#0">Privacy Policy</a>
-                </li>
-            </ul>-->
-        </div>
+</div>
 <style type="text/css">
     .footer{
          align-items: normal;
