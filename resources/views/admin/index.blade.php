@@ -1,4 +1,4 @@
-@extends('admin.layouts.dashboard', ['title'=>'Admin Dashboard', 'module'=>'Home'])
+@extends('admin.layouts.app', ['title'=>'Admin Dashboard', 'module'=>'Home'])
 
 @section('body')
 	

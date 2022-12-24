@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\Dashbaord;
+namespace App\View\Components\Admin;
 
 use Illuminate\View\Component;
 
@@ -23,6 +23,6 @@ class SidebarMenu extends Component
      */
     public function render()
     {
-        return view('components.dashbaord.admin-sidebar-menu');
+        return view('admin.components.sidebar-menu');
     }
 }

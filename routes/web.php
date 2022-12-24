@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Redirect;
+
+
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\HomeController;
 
@@ -15,6 +18,8 @@ use App\Http\Controllers\SubscriptionController;
 
 
 include __DIR__ . '/admin.php';
+include __DIR__ . '/affiliate.php';
+include __DIR__ . '/customer.php';
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,7 +34,6 @@ include __DIR__ . '/admin.php';
 Auth::routes();
 Route::get('/test', function () {  return view('home-test'); });
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/startup-registration/{lavel_1}', [HomeController::class, 'startupRegistrationLabel1']);
@@ -73,7 +77,25 @@ Route::get('/2', function () {  return view('home-backup2'); });
 
 
 Route::group(['middleware' => ['auth']], function() {
-    Route::get('dashboard', [ DashboardController::class, 'index']);
+
+    Route::get('/dashboard',
+                    function(){                        
+                        if(\Auth::user()->user_type == 'admin'){
+                            return Redirect::to('admin/dashboard');
+                        }
+                        if(\Auth::user()->user_type == 'affiliate'){
+                            return Redirect::to('affiliate/dashboard');   
+                        }
+                        if(\Auth::user()->user_type == 'customer'){
+                            return Redirect::to('customer/dashboard');
+                        }
+                        return Redirect::to('/');                        
+                    }
+
+            );
+
+
+   
     Route::get('agents/add', [ AgentController::class, 'add']);
     Route::post('agents/add', [ AgentController::class, 'store']);
 

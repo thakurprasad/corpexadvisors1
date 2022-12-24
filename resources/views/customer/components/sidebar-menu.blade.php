@@ -12,11 +12,12 @@
         </div>
         <ul class="dashboard-menu">
             <li>
-                <a href="{{ url('/admin') }}" class="active"><i class="flaticon-man"></i>Dashboard</a>
+                <a href="{{ url('/customer/dashboard') }}" class="active"><i class="flaticon-man"></i>Dashboard</a>
             </li>
             <li>
-                <a href="{{ url('/admin/services') }}"><i class="flaticon-coin"></i>Services</a>
+                <a href="{{ url('/customer/dashboard') }}" class="active"><i class="flaticon-man"></i>Customer</a>
             </li>
+            
             <li>
                 <a href="javascript:void(0)"><i class="flaticon-right-arrow"></i>Logout</a>
             </li>

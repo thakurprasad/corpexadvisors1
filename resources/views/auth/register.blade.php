@@ -39,6 +39,10 @@
                  <label for="password-confirm" class="">{{ __('Confirm Password') }}</label>
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
             </div>
+            <div class="form-group">
+                <label><input type="radio" name="user_type" value="customer"  style="height:16px;width: 30px;">Customer</label>
+                <label><input type="radio" name="user_type" value="affiliate"  style="height:16px;width: 30px;">Affiliate</label>
+            </div>
             <div class="form-group text-center">
                 <button type="submit" class="custom-button mt-2 mb-2">{{ __('Register') }}</button>
             </div>

@@ -1,4 +1,4 @@
-@extends('admin.layouts.dashboard', ['title'=> $breadcrum, 'module'=>'Edit Services '. $data->name])
+@extends('admin.layouts.app', ['title'=> $breadcrum, 'module'=>'Edit Services '. $data->name])
 
 @section('body')
 	

@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?= (isset($title) ? $title: '' ) ?></title>
+    <title>Affiliate : <?= (isset($title) ? $title: '' ) ?></title>
     <link rel="stylesheet" href="{{ url('public/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url('public/assets/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ url('public/assets/css/animate.css') }}">
@@ -40,7 +40,7 @@
         <!--=======SideHeader-Section Starts Here=======-->
         <div class="notify-overlay"></div>
         <section class="dashboard-section">
-            <x-dashbaord.admin-sidebar-menu />
+            <x-affiliate.sidebar-menu />
             <div class="dasboard-body">
                 <div class="dashboard-hero">
                     <div class="header-top">
