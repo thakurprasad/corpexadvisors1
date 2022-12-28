@@ -11,15 +11,11 @@
             </a>
         </div>
         <ul class="dashboard-menu">
+            @foreach($menus as $key => $menu)
             <li>
-                <a href="{{ url('/admin') }}" class="active"><i class="flaticon-man"></i>Dashboard</a>
+                <a href="{{ $menu['slug'] }}" class="{{ $menu['class'] }}"><i class="{{$menu['icon']}}"></i>{{ $menu['name'] }}</a>
             </li>
-            <li>
-                <a href="{{ url('/admin') }}" class="active"><i class="flaticon-man"></i>Admin</a>
-            </li>
-            <li>
-                <a href="{{ url('/admin/services') }}"><i class="flaticon-coin"></i>Services</a>
-            </li>
+            @endforeach 
             <li>
                 <a href="javascript:void(0)"><i class="flaticon-right-arrow"></i>Logout</a>
             </li>

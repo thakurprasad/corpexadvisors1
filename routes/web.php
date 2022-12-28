@@ -5,17 +5,16 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Redirect;
 
 
-use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\TestContoller;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AgentController;
-use App\Http\Controllers\CommandController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SubscriptionController;
 
+Route::get('/msg', [TestContoller::class, 'msg']);
 
 include __DIR__ . '/admin.php';
 include __DIR__ . '/affiliate.php';

@@ -3,21 +3,25 @@
 @section('body')
 	
 	       <div class="card-body">
-   @include('alert.message')      
+@include('alert.message')      
+
+<a href="{{ url('msg') }}">get Error msg</a>
+@if($errors->any())
+    <h4>{{$errors->first()}}</h4>
+@endif
                 {!! Form::open(array('url' => 'agents/add','method'=>'POST',  'enctype'=>'multipart/form-data' )) !!} 
                   <div class="row col-md-12">
-
                     <div class="col-md-3 col-sm-6">
                       <div class="form-group" >
                         <label>First Name</label>
-                         {!! Form::text('first_name', null, array('placeholder' => 'Enter First Name', 'class' => 'form-control', 'id'=>'first_name' , 'required'=>'required' )) !!}                          
+                         {!! Form::text('first_name', null, array('placeholder' => 'Enter First Name', 'class' => 'form-control', 'id'=>'first_name'  )) !!}                          
                       </div>
                     </div>
                     
                     <div class="col-md-3 col-sm-6">
                       <div class="form-group" >
                         <label>Last Name</label>
-                         {!! Form::text('last_name', null, array('placeholder' => 'Enter Last Name', 'class' => 'form-control', 'id'=>'last_name', 'required'=>'required')) !!}                          
+                         {!! Form::text('last_name', null, array('placeholder' => 'Enter Last Name', 'class' => 'form-control', 'id'=>'last_name')) !!}                          
                       </div>
                     </div>
 
@@ -41,29 +45,14 @@
                     <div class="col-md-3 col-sm-6">
                       <div class="form-group" >
                         <label>Email</label>
-                         {!! Form::text('email', null, array('placeholder' => 'Enter Email', 'class' => 'form-control', 'id'=>'email', 'required'=>'required')) !!}                          
+                         {!! Form::text('email', null, array('placeholder' => 'Enter Email', 'class' => 'form-control', 'id'=>'email')) !!}                          
                       </div>
                     </div>
 
                     <div class="col-md-3 col-sm-6">
                       <div class="form-group" >
                         <label>Mobile</label>
-                         {!! Form::text('mobile', null, array('placeholder' => 'Enter Mobile', 'class' => 'form-control', 'id'=>'mobile', 'required'=>'required')) !!}                          
-                      </div>
-                    </div>
-
-                     <div class="col-md-3 col-sm-6">
-                      <div class="form-group" >
-                        <label>MPIN</label>
-                         {!! Form::password('mpin', array('placeholder' => 'Enter MPIN','class' => 'form-control' , 'id'=>'mpin'
-                         , 'required'=>'required')) !!}                         
-                      </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-6">
-                      <div class="form-group" >
-                        <label>Cofirm MPIN</label>
-                         {!! Form::text('confirm_mpin', null, array('placeholder' => 'Confirm MPIN', 'class' => 'form-control', 'id'=>'confirm_mpin', 'required'=>'required')) !!}                          
+                         {!! Form::text('mobile', null, array('placeholder' => 'Enter Mobile', 'class' => 'form-control', 'id'=>'mobile')) !!}                          
                       </div>
                     </div>
 
@@ -207,31 +196,6 @@
                       </div>
                     </div>
 
-                  </div>
-<div class="row gap-with-border"></div>
-                  <div class="row col-md-12">
-
-                    <div class="col-md-3 col-sm-6">
-                      <div class="form-group" >
-                        <label>Upload EUIN Image</label>
-                         <input type="file" name="euin_image" id="euin_image" class="form-control">
-                         <img src="{{ asset('img/no-image.jpg') }}" id="view_euin_image" class="doc-image">                         
-                      </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-6">
-                      <div class="form-group" >
-                        <label>EUIN Number</label>
-                         {!! Form::text('euin_number', null, array('placeholder' => 'Enter EUIN Number', 'class' => 'form-control', 'id'=>'euin_number')) !!}                          
-                      </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-6">
-                      <div class="form-group" >
-                        <label>ARN Number</label>
-                         {!! Form::text('arn_number', null, array('placeholder' => 'Enter ARN Number', 'class' => 'form-control', 'id'=>'arn_number')) !!}                          
-                      </div>
-                    </div>
                   </div>
 
 			<div class="row gap-with-border"></div>

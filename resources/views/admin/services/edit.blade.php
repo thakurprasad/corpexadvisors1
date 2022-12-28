@@ -8,7 +8,7 @@
    		@include('alert.message')   		
    </div>
 
-   {!! Form::model($data, array('url' => 'admin/service/service/'.$data->id ,'method'=>'POST',  'enctype'=>'multipart/form-data' )) !!} 
+   {!! Form::model($data, array('url' => 'admin/services/edit/'.$data->id ,'method'=>'POST',  'enctype'=>'multipart/form-data' )) !!} 
    @csrf
 	    <div class="row">
 		  	<div class="col-md-8">		   	

@@ -23,6 +23,47 @@ class SidebarMenu extends Component
      */
     public function render()
     {
-        return view('admin.components.sidebar-menu');
+
+        $menus = [
+            [
+                'name'=> 'Dashboard', 
+                'icon' => 'flaticon-man', 
+                'slug'=> url('admin/dashboard'),
+                'class'=>(request()->is('admin/dashboard') ? 'active': '')
+            ],
+            [
+                'name'=> 'All Users', 
+                'icon' => 'flaticon-man', 
+                'slug'=> url('admin/users'), 
+                'class'=>(request()->is('admin/users') ? 'active': '')
+            ],
+            [
+                'name'=> 'Affiliates', 
+                'icon' => 'flaticon-man', 
+                'slug'=> url('admin/users/affiliate'), 
+                'class'=>(request()->is('admin/users/affiliate') ? 'active': '')
+            ],
+            [
+                'name'=> 'Customers', 
+                'icon' => 'flaticon-man', 
+                'slug'=> url('admin/users/customer'), 
+                'class'=>(request()->is('admin/users/customer') ? 'active': '')
+            ],
+            [
+                'name'=> 'Membership', 
+                'icon' => 'flaticon-man',
+                'slug'=> url('admin/membership'), 
+                'class'=>(request()->is('admin/membership') ? 'active': '')
+            ],
+            [
+                'name'=> 'Services', 
+                'icon' => 'flaticon-man', 
+                'slug'=> url('admin/services'), 
+                'class'=>(request()->is('admin/services/*') ? 'active': '')
+            ]
+        ];
+
+        $menus = collect($menus);
+        return view('admin.components.sidebar-menu', ['menus'=>$menus]);
     }
 }

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Storage;
 
 use App\Exports\AgentExport;
 use Maatwebsite\Excel\Facades\Excel;
-
+use Redirect;
 
  
 class AgentController extends Controller
@@ -28,8 +28,9 @@ class AgentController extends Controller
     }
 
     public function add(){
+
         try{
-           # dd(".........");
+           
             return view('agents.add');
         }catch(\Exception $ex){
             return redirect()->back()->with('error', $ex->getMessage() );
@@ -37,26 +38,25 @@ class AgentController extends Controller
     }
 
     public function store(Request $req){
-       // return $req->input();
+
         try{
 
             $validator = Validator::make(
-                $req->all(),
+                $req->input(),
                     [
                     'first_name'        => 'required',  
                     'last_name'         => 'required',  
                     'email'             => 'required|email',   
-                    'mobile'            => 'required',  
-                    'mpin'              => 'min:4|max:6|required_with:confirm_mpin|same:confirm_mpin',
-                    'confirm_mpin'      => 'min:4|max:6'
+                    'mobile1'            => 'required'                  
                 ]
             );
 
             if ($validator->fails())
-            {   
-                return redirect()->back()->withErrors($validator->errors())->withInput();
+            {   //return $validator->errors();
+                //return redirect()->back()->withErrors($validator->errors())->withInput();
+                return redirect()->back()->with('sss', $validator->errors())->withInput();
             }
-         DB::beginTransaction();
+           DB::beginTransaction();
             if($req->filled('first_name')){
                 $agent['first_name'] = $req->input('first_name');    
             }
@@ -68,9 +68,6 @@ class AgentController extends Controller
             }
             if($req->filled('mobile')){
                 $agent['mobile'] = $req->input('mobile');    
-            }
-            if($req->filled('mpin')){
-                $agent['mpin'] = bcrypt($req->input('mpin'));    
             }
 
             if($req->filled('gender')){
@@ -152,17 +149,6 @@ class AgentController extends Controller
                     $agent_document['bank_ifsc_code'] = $req->input('bank_ifsc_code');
                 }
 
-                # save euin and arn data
-                if($req->file('euin_image')){
-                    $euin_image = base64_encode(file_get_contents($req->file('euin_image')->path()));
-                    $agent_document['euin_image'] = "data:image/" . $req->file('euin_image')->extension() . ";base64," . $euin_image;
-                }
-                if($req->filled('euin_number')){
-                    $agent_document['euin_number'] = $req->input('euin_number');
-                }
-                if($req->filled('arn_number')){
-                    $agent_document['arn_number'] = $req->input('arn_number');
-                }
                 AgentDocument::create($agent_document);
                 
                 DB::commit();

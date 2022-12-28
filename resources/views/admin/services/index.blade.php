@@ -24,7 +24,7 @@
    			<td><a href="{{ url('admin/services?parent_id='.$row->parent_id) }}"> {!! $row->parent_name !!}</a></td>
    			<td>{!! $row->price !!}</td>
    			<td>{!! $row->result_data !!}  </td>
-   			<td><a class="btn-info btn-sm btn" href="{{ url('admin/service/category/'.$row->id) }}" target="_blank">Edit</a></td>
+   			<td><a class="btn-info btn-sm btn" href="{{ url('admin/services/edit/'.$row->id) }}" target="_blank">Edit</a></td>
 
 	   	</tr>
 	   @endforeach	

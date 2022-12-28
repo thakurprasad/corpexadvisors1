@@ -15,6 +15,16 @@
                     </span>
                 @enderror
             </div>
+            
+            <div class="form-group">
+                <label for="mobile">{{ __('Mobile') }} </label>             
+                <input id="mobile" type="text" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile') }}" required autocomplete="mobile" autofocus placeholder="Enter Your Mobile">
+                @error('mobile')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
 
             <div class="form-group">
                 <label for="email" class="">{{ __('Email Address') }}</label>

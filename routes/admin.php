@@ -1,8 +1,9 @@
 <?php 
 
-use App\Http\Controllers\{
+use App\Http\Controllers\Admin\{
 		ServiceController,
-		CommandController 
+		CommandController,
+		UserController 
 	};
 
 Route::get('admin/login', function(){
@@ -21,9 +22,13 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 			return view('admin.index');
 		});
 
+		Route::get('users', [UserController::class, 'index']);
+		Route::get('users/{user_type}', [UserController::class, 'index']);
+
+
 		Route::get('services', [ServiceController::class, 'index']);
-		Route::get('service/{col}/{id}', [ServiceController::class, 'edit']);
-		Route::post('service/{col}/{id}', [ServiceController::class, 'update']);
+		Route::get('services/edit/{id}', [ServiceController::class, 'edit']);
+		Route::post('services/edit/{id}', [ServiceController::class, 'update']);
 
 	    Route::get('backup/mysql/{_token}', [CommandController::class, 'show']);
 	    //Route::get('artisan/{command}/{param}', [CommandController::class, 'show']);
