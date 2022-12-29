@@ -27,7 +27,9 @@
    			<td>{!! $row->email !!}</td>
    			<td>{!! $row->user_type !!}</td>
    			<td>{!! $row->created_at !!}</td>   			
-   			<td><a class="btn-info btn-sm btn" href="{{ url('admin/service/category/'.$row->id) }}" target="_blank">Edit</a></td>
+   			<td>
+               <a class="btn-info btn-sm btn" href="{{ url('admin/'.$row->user_type.'/update-profile/'. Helper::_encrypt($row->id) ) }}" target="_blank">Edit</a>
+            </td>
 	   	</tr>
 	   @endforeach	
 	   </tbody>   	

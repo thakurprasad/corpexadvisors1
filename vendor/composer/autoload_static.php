@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit083c9b9453dec7e9352e3980e739fa8c
+class ComposerStaticInit89ef74acd48e3d5e6fd09594e1fc4592
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
@@ -37,7 +37,6 @@ class ComposerStaticInit083c9b9453dec7e9352e3980e739fa8c
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
-        '0c3c22e27afa83be19b4c938f4c6e9ea' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Helpers/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -83,9 +82,6 @@ class ComposerStaticInit083c9b9453dec7e9352e3980e739fa8c
             'Symfony\\Component\\ErrorHandler\\' => 31,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
-            'Spatie\\TemporaryDirectory\\' => 26,
-            'Spatie\\DbDumper\\' => 16,
-            'Spatie\\Backup\\' => 14,
         ),
         'R' => 
         array (
@@ -305,18 +301,6 @@ class ComposerStaticInit083c9b9453dec7e9352e3980e739fa8c
         'Symfony\\Component\\Console\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
-        ),
-        'Spatie\\TemporaryDirectory\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/spatie/temporary-directory/src',
-        ),
-        'Spatie\\DbDumper\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/spatie/db-dumper/src',
-        ),
-        'Spatie\\Backup\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/spatie/laravel-backup/src',
         ),
         'Ramsey\\Uuid\\' => 
         array (
@@ -560,10 +544,7 @@ class ComposerStaticInit083c9b9453dec7e9352e3980e739fa8c
         'App\\Http\\Controllers\\SubscriptionController' => __DIR__ . '/../..' . '/app/Http/Controllers/SubscriptionController.php',
         'App\\Http\\Controllers\\TestContoller' => __DIR__ . '/../..' . '/app/Http/Controllers/TestContoller.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
-        'App\\Http\\Middleware\\AdminMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/AdminMiddleware.php',
-        'App\\Http\\Middleware\\AffiliateMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/AffiliateMiddleware.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
-        'App\\Http\\Middleware\\CustomerMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/CustomerMiddleware.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\PreventRequestsDuringMaintenance' => __DIR__ . '/../..' . '/app/Http/Middleware/PreventRequestsDuringMaintenance.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
@@ -571,28 +552,12 @@ class ComposerStaticInit083c9b9453dec7e9352e3980e739fa8c
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
-        'App\\Models\\Agent' => __DIR__ . '/../..' . '/app/Models/Agent.php',
-        'App\\Models\\AgentDocument' => __DIR__ . '/../..' . '/app/Models/AgentDocument.php',
-        'App\\Models\\ApiUrl' => __DIR__ . '/../..' . '/app/Models/ApiUrl.php',
-        'App\\Models\\Bank' => __DIR__ . '/../..' . '/app/Models/Bank.php',
-        'App\\Models\\Company' => __DIR__ . '/../..' . '/app/Models/Company.php',
-        'App\\Models\\Contact' => __DIR__ . '/../..' . '/app/Models/Contact.php',
-        'App\\Models\\Html' => __DIR__ . '/../..' . '/app/Models/Html.php',
-        'App\\Models\\Menu' => __DIR__ . '/../..' . '/app/Models/Menu.php',
-        'App\\Models\\ServiceCategory' => __DIR__ . '/../..' . '/app/Models/ServiceCategory.php',
-        'App\\Models\\Subscription' => __DIR__ . '/../..' . '/app/Models/Subscription.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
-        'App\\View\\Components\\Admin\\SidebarMenu' => __DIR__ . '/../..' . '/app/View/Components/Admin/SidebarMenu.php',
-        'App\\View\\Components\\Affiliate\\SidebarMenu' => __DIR__ . '/../..' . '/app/View/Components/Affiliate/SidebarMenu.php',
-        'App\\View\\Components\\CompanySearch' => __DIR__ . '/../..' . '/app/View/Components/CompanySearch.php',
-        'App\\View\\Components\\Customer\\SidebarMenu' => __DIR__ . '/../..' . '/app/View/Components/Customer/SidebarMenu.php',
-        'App\\View\\Components\\Dashbaord\\SidebarMenu' => __DIR__ . '/../..' . '/app/View/Components/Dashbaord/SidebarMenu.php',
-        'App\\View\\Components\\HeighChart' => __DIR__ . '/../..' . '/app/View/Components/HeighChart.php',
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/CorsService.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
@@ -4705,74 +4670,6 @@ class ComposerStaticInit083c9b9453dec7e9352e3980e739fa8c
         'SebastianBergmann\\Type\\UnknownType' => __DIR__ . '/..' . '/sebastian/type/src/type/UnknownType.php',
         'SebastianBergmann\\Type\\VoidType' => __DIR__ . '/..' . '/sebastian/type/src/type/VoidType.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
-        'Spatie\\Backup\\BackupDestination\\Backup' => __DIR__ . '/..' . '/spatie/laravel-backup/src/BackupDestination/Backup.php',
-        'Spatie\\Backup\\BackupDestination\\BackupCollection' => __DIR__ . '/..' . '/spatie/laravel-backup/src/BackupDestination/BackupCollection.php',
-        'Spatie\\Backup\\BackupDestination\\BackupDestination' => __DIR__ . '/..' . '/spatie/laravel-backup/src/BackupDestination/BackupDestination.php',
-        'Spatie\\Backup\\BackupDestination\\BackupDestinationFactory' => __DIR__ . '/..' . '/spatie/laravel-backup/src/BackupDestination/BackupDestinationFactory.php',
-        'Spatie\\Backup\\BackupServiceProvider' => __DIR__ . '/..' . '/spatie/laravel-backup/src/BackupServiceProvider.php',
-        'Spatie\\Backup\\Commands\\BackupCommand' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Commands/BackupCommand.php',
-        'Spatie\\Backup\\Commands\\BaseCommand' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Commands/BaseCommand.php',
-        'Spatie\\Backup\\Commands\\CleanupCommand' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Commands/CleanupCommand.php',
-        'Spatie\\Backup\\Commands\\ListCommand' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Commands/ListCommand.php',
-        'Spatie\\Backup\\Commands\\MonitorCommand' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Commands/MonitorCommand.php',
-        'Spatie\\Backup\\Events\\BackupHasFailed' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Events/BackupHasFailed.php',
-        'Spatie\\Backup\\Events\\BackupManifestWasCreated' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Events/BackupManifestWasCreated.php',
-        'Spatie\\Backup\\Events\\BackupWasSuccessful' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Events/BackupWasSuccessful.php',
-        'Spatie\\Backup\\Events\\BackupZipWasCreated' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Events/BackupZipWasCreated.php',
-        'Spatie\\Backup\\Events\\CleanupHasFailed' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Events/CleanupHasFailed.php',
-        'Spatie\\Backup\\Events\\CleanupWasSuccessful' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Events/CleanupWasSuccessful.php',
-        'Spatie\\Backup\\Events\\DumpingDatabase' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Events/DumpingDatabase.php',
-        'Spatie\\Backup\\Events\\HealthyBackupWasFound' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Events/HealthyBackupWasFound.php',
-        'Spatie\\Backup\\Events\\UnhealthyBackupWasFound' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Events/UnhealthyBackupWasFound.php',
-        'Spatie\\Backup\\Exceptions\\CannotCreateDbDumper' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Exceptions/CannotCreateDbDumper.php',
-        'Spatie\\Backup\\Exceptions\\InvalidBackupDestination' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Exceptions/InvalidBackupDestination.php',
-        'Spatie\\Backup\\Exceptions\\InvalidBackupJob' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Exceptions/InvalidBackupJob.php',
-        'Spatie\\Backup\\Exceptions\\InvalidCommand' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Exceptions/InvalidCommand.php',
-        'Spatie\\Backup\\Exceptions\\InvalidConfiguration' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Exceptions/InvalidConfiguration.php',
-        'Spatie\\Backup\\Exceptions\\InvalidHealthCheck' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Exceptions/InvalidHealthCheck.php',
-        'Spatie\\Backup\\Exceptions\\NotificationCouldNotBeSent' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Exceptions/NotificationCouldNotBeSent.php',
-        'Spatie\\Backup\\Helpers\\ConsoleOutput' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Helpers/ConsoleOutput.php',
-        'Spatie\\Backup\\Helpers\\File' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Helpers/File.php',
-        'Spatie\\Backup\\Helpers\\Format' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Helpers/Format.php',
-        'Spatie\\Backup\\Helpers\\RightAlignedTableStyle' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Helpers/RightAlignedTableStyle.php',
-        'Spatie\\Backup\\Listeners\\EncryptBackupArchive' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Listeners/EncryptBackupArchive.php',
-        'Spatie\\Backup\\Notifications\\BaseNotification' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Notifications/BaseNotification.php',
-        'Spatie\\Backup\\Notifications\\EventHandler' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Notifications/EventHandler.php',
-        'Spatie\\Backup\\Notifications\\Notifiable' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Notifications/Notifiable.php',
-        'Spatie\\Backup\\Notifications\\Notifications\\BackupHasFailed' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Notifications/Notifications/BackupHasFailed.php',
-        'Spatie\\Backup\\Notifications\\Notifications\\BackupWasSuccessful' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Notifications/Notifications/BackupWasSuccessful.php',
-        'Spatie\\Backup\\Notifications\\Notifications\\CleanupHasFailed' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Notifications/Notifications/CleanupHasFailed.php',
-        'Spatie\\Backup\\Notifications\\Notifications\\CleanupWasSuccessful' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Notifications/Notifications/CleanupWasSuccessful.php',
-        'Spatie\\Backup\\Notifications\\Notifications\\HealthyBackupWasFound' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Notifications/Notifications/HealthyBackupWasFound.php',
-        'Spatie\\Backup\\Notifications\\Notifications\\UnhealthyBackupWasFound' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Notifications/Notifications/UnhealthyBackupWasFound.php',
-        'Spatie\\Backup\\Tasks\\Backup\\BackupJob' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Tasks/Backup/BackupJob.php',
-        'Spatie\\Backup\\Tasks\\Backup\\BackupJobFactory' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Tasks/Backup/BackupJobFactory.php',
-        'Spatie\\Backup\\Tasks\\Backup\\DbDumperFactory' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Tasks/Backup/DbDumperFactory.php',
-        'Spatie\\Backup\\Tasks\\Backup\\FileSelection' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Tasks/Backup/FileSelection.php',
-        'Spatie\\Backup\\Tasks\\Backup\\Manifest' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Tasks/Backup/Manifest.php',
-        'Spatie\\Backup\\Tasks\\Backup\\Zip' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Tasks/Backup/Zip.php',
-        'Spatie\\Backup\\Tasks\\Cleanup\\CleanupJob' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Tasks/Cleanup/CleanupJob.php',
-        'Spatie\\Backup\\Tasks\\Cleanup\\CleanupStrategy' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Tasks/Cleanup/CleanupStrategy.php',
-        'Spatie\\Backup\\Tasks\\Cleanup\\Period' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Tasks/Cleanup/Period.php',
-        'Spatie\\Backup\\Tasks\\Cleanup\\Strategies\\DefaultStrategy' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Tasks/Cleanup/Strategies/DefaultStrategy.php',
-        'Spatie\\Backup\\Tasks\\Monitor\\BackupDestinationStatus' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Tasks/Monitor/BackupDestinationStatus.php',
-        'Spatie\\Backup\\Tasks\\Monitor\\BackupDestinationStatusFactory' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Tasks/Monitor/BackupDestinationStatusFactory.php',
-        'Spatie\\Backup\\Tasks\\Monitor\\HealthCheck' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Tasks/Monitor/HealthCheck.php',
-        'Spatie\\Backup\\Tasks\\Monitor\\HealthCheckFailure' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Tasks/Monitor/HealthCheckFailure.php',
-        'Spatie\\Backup\\Tasks\\Monitor\\HealthChecks\\IsReachable' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Tasks/Monitor/HealthChecks/IsReachable.php',
-        'Spatie\\Backup\\Tasks\\Monitor\\HealthChecks\\MaximumAgeInDays' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Tasks/Monitor/HealthChecks/MaximumAgeInDays.php',
-        'Spatie\\Backup\\Tasks\\Monitor\\HealthChecks\\MaximumStorageInMegabytes' => __DIR__ . '/..' . '/spatie/laravel-backup/src/Tasks/Monitor/HealthChecks/MaximumStorageInMegabytes.php',
-        'Spatie\\DbDumper\\Compressors\\Compressor' => __DIR__ . '/..' . '/spatie/db-dumper/src/Compressors/Compressor.php',
-        'Spatie\\DbDumper\\Compressors\\GzipCompressor' => __DIR__ . '/..' . '/spatie/db-dumper/src/Compressors/GzipCompressor.php',
-        'Spatie\\DbDumper\\Databases\\MongoDb' => __DIR__ . '/..' . '/spatie/db-dumper/src/Databases/MongoDb.php',
-        'Spatie\\DbDumper\\Databases\\MySql' => __DIR__ . '/..' . '/spatie/db-dumper/src/Databases/MySql.php',
-        'Spatie\\DbDumper\\Databases\\PostgreSql' => __DIR__ . '/..' . '/spatie/db-dumper/src/Databases/PostgreSql.php',
-        'Spatie\\DbDumper\\Databases\\Sqlite' => __DIR__ . '/..' . '/spatie/db-dumper/src/Databases/Sqlite.php',
-        'Spatie\\DbDumper\\DbDumper' => __DIR__ . '/..' . '/spatie/db-dumper/src/DbDumper.php',
-        'Spatie\\DbDumper\\Exceptions\\CannotSetParameter' => __DIR__ . '/..' . '/spatie/db-dumper/src/Exceptions/CannotSetParameter.php',
-        'Spatie\\DbDumper\\Exceptions\\CannotStartDump' => __DIR__ . '/..' . '/spatie/db-dumper/src/Exceptions/CannotStartDump.php',
-        'Spatie\\DbDumper\\Exceptions\\DumpFailed' => __DIR__ . '/..' . '/spatie/db-dumper/src/Exceptions/DumpFailed.php',
-        'Spatie\\TemporaryDirectory\\TemporaryDirectory' => __DIR__ . '/..' . '/spatie/temporary-directory/src/TemporaryDirectory.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\Attribute\\AsCommand' => __DIR__ . '/..' . '/symfony/console/Attribute/AsCommand.php',
@@ -5604,10 +5501,10 @@ class ComposerStaticInit083c9b9453dec7e9352e3980e739fa8c
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit083c9b9453dec7e9352e3980e739fa8c::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit083c9b9453dec7e9352e3980e739fa8c::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit083c9b9453dec7e9352e3980e739fa8c::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit083c9b9453dec7e9352e3980e739fa8c::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit89ef74acd48e3d5e6fd09594e1fc4592::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit89ef74acd48e3d5e6fd09594e1fc4592::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit89ef74acd48e3d5e6fd09594e1fc4592::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit89ef74acd48e3d5e6fd09594e1fc4592::$classMap;
 
         }, null, ClassLoader::class);
     }

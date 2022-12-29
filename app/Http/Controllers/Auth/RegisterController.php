@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Affiliate;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -54,7 +55,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'user_type'=>['in:customer,affiliate'],
-            'mobile' => ['required']
+            'mobile' => ['required'],
         ]);
     }
 
@@ -66,12 +67,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        
+        $user =  User::create([
             'name' => $data['name'],
-            'email' => $data['email'],
+            'email' => $data['email'],            
             'mobile' => $data['mobile'],
             'user_type' => $data['user_type'],
             'password' => Hash::make($data['password']),
-        ]);
+        ]);        
+        $name_arr = explode(" ", $data['name']);
+        $first_name = $data['name'];
+        $last_name = '';
+        if(count($name_arr)>1){
+            $first_name = $name_arr[0];
+            $last_name  = $name_arr[1];
+        }
+        Affiliate::create(['user_id'=>$user->id, 'first_name'=>$first_name, 'last_name' => $last_name]);
+        return $user;
     }
 }

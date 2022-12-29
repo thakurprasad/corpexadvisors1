@@ -2,12 +2,18 @@
 namespace App\Helper;
 
 use App\Models\Bank;
+use App\Models\User;
 use App\Models\ServiceCategory;
 use DB;
 
 class Helper
-{
-	   public static function getStatus(){
+{   
+    public static function getUser($email){
+        //return $email;
+        return User::where(['email'=> 'sandeep1@gmail.com'])->first();
+    }
+
+	public static function getStatus(){
         return [ 
             '' => '-- Select --',
             '1' => 'Active',

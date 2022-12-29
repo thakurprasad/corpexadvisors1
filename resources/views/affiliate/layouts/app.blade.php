@@ -221,7 +221,7 @@
                                                             <a href="#0"><i class="far fa-user"></i>Profile</a>
                                                         </li>
                                                         <li>
-                                                            <a href="#0"><i class="fas fa-user-edit"></i>Edit Profile</a>
+                                                            <a href="{{ url('affiliate/update-profile/'.Helper::_encrypt(\Auth::user()->id)) }}"><i class="fas fa-user-edit"></i>Edit Profile</a>
                                                         </li>
                                                         <li>
                                                             <a href="{{ route('logout') }}"

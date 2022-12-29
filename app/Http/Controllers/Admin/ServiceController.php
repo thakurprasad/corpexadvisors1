@@ -56,7 +56,7 @@ class ServiceController extends Controller
         return view('admin.services.edit', ['data'=>$data, 'result_data' => $result_data , 'required_documents'=>$required_documents,'working_process'=>$working_process, 'breadcrum'=>$breadcrum, 'details'=>$details]);
     }
 
-    public function update(Request $request ,$col, $id){
+    public function update(Request $request , $id){
      #   return $request->input();
         if($request->has('details')){
             $required_documents = array_values($request->input('required_documents'));

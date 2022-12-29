@@ -17,7 +17,6 @@ return [
 
     'default' => env('DB_CONNECTION', 'mysql'),
 
-
     /*
     |--------------------------------------------------------------------------
     | Database Connections
@@ -45,13 +44,6 @@ return [
         ],
 
         'mysql' => [
-            'dump' => [
-                   'dump_binary_path' => 'D:/xampp/mysql/bin', // only the path, so without `mysqldump` or `pg_dump`
-                   'use_single_transaction',
-                   'timeout' => 60 * 5, // 5 minute timeout
-                   'exclude_tables' => ['api_urls', 'agents'],
-                   //'add_extra_option' => '--optionname=optionvalue', 
-                ],
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),

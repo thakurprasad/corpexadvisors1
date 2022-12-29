@@ -14,7 +14,13 @@ use App\Http\Controllers\AgentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SubscriptionController;
 
-Route::get('/msg', [TestContoller::class, 'msg']);
+Route::get('/msg', function(){
+     return redirect()->back()->withErrors(['msg'=> 'meeeeeeeeeee find.....']);
+});
+
+Route::get('/test', function () {  
+     return redirect()->back()->withErrors(['msg'=> 'meeeeeeeeeee find.....']);
+});
 
 include __DIR__ . '/admin.php';
 include __DIR__ . '/affiliate.php';
@@ -31,7 +37,7 @@ include __DIR__ . '/customer.php';
 */
 
 Auth::routes();
-Route::get('/test', function () {  return view('home-test'); });
+
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
