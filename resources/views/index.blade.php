@@ -399,7 +399,7 @@
                                         <div class="menu-content">
                                             <h5 class="title">Instant  registration</h5>
                                             <p>
-                                                 Click <a href="{{ url('/sign-up') }}">Sign Up</a> to fill the form to get started. </p>
+                                                 Click <a href="{{ url('/register') }}">Sign Up</a> to fill the form to get started. </p>
                                             </p>
                                         </div>
                                     </li>
