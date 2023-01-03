@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ url('public/assets/css/magnific-popup.css') }}">
     <link rel="stylesheet" href="{{ url('public/assets/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ url('public/assets/css/main.css') }}">
+    <link rel="stylesheet" href="{{ url('public/assets/css/custom-style.css') }}">
 
     <link rel="shortcut icon" href="{{ url('public/assets/images/favicon.png') }}" type="image/x-icon">
 </head>

@@ -9,6 +9,10 @@
                 {!! Form::model($user, array('url' => 'affiliate/update-profile/'.Helper::_encrypt(  $user->id ) ,'method'=>'POST',  'enctype'=>'multipart/form-data', 'id'=>'form_update_profile' )) !!} 
 
                   <div class="row col-md-12">
+                    
+                    <div class="aapproval-status-icon col-md-12">
+                      <img src="{{ asset('images/status/'.$user->photo_status.'.jpg') }}" class="{{ $user->photo_status }}">
+                    </div>
 
                     <div class="col-md-4 col-sm-12">
                       <div class="form-group" >
@@ -69,6 +73,10 @@
              
                 <div class="row gap-with-border"></div>
 
+                  <div class="aapproval-status-icon col-md-12">
+                      <img src="{{ asset('images/status/'.$user->pan_status.'.jpg') }}" class="{{ $user->pan_status }}">
+                    </div>
+
                     <div class="row col-md-12">
 
                     <div class="col-md-4 col-sm-12">
@@ -102,6 +110,10 @@
 
                   </div>
 <div class="row gap-with-border"></div>
+                 <div class="aapproval-status-icon col-md-12">
+                      <img src="{{ asset('images/status/'.$user->aadhar_status.'.jpg') }}" class="{{ $user->aadhar_status }}">
+                    </div>
+
                  <div class="row col-md-12">
 
                     <div class="col-md-4 col-sm-12">
@@ -156,6 +168,11 @@
 
                   </div>
 <div class="row gap-with-border"></div>
+              <div class="aapproval-status-icon col-md-12">
+                      <img src="{{ asset('images/status/'.$user->bank_status.'.jpg') }}" class="{{ $user->bank_status }}">
+                    </div>
+
+
                   <div class="row col-md-12">
 
 

@@ -255,7 +255,7 @@ class AffiliateController extends Controller
                 $daterange = '';
             }
 
-
+ 
             $data = $data->orderBy('created_at', 'DESC')->paginate(10)->appends(request()->query()); 
             
             return view('agents.list', ['agents' => $data, 'get'=> $req->input(), 'daterange'=>$daterange ]);
@@ -270,7 +270,13 @@ class AffiliateController extends Controller
             
             $user_id = Helper::_decrypt($user_id);
             
-             $user = User::select("*")
+             $user = User::select(
+                        'affiliates.*',
+                        'users.name',
+                        'users.mobile',
+                        'users.email',                        
+                        'users.user_type',                        
+                            )
                     ->join('affiliates', 'affiliates.user_id', '=', 'users.id')
                     ->where('users.id', $user_id)->first();           
             $user->pan_dob =  (new Carbon($user->pan_dob))->format('d/m/Y');                 
@@ -301,22 +307,27 @@ class AffiliateController extends Controller
             if($req->file('profile_image')){
                 $path = Storage::disk('local')->put( config('uploads.profile-path'), $req->profile_image, 'public');
                 $affiliate['profile_image'] = Storage::disk('local')->url($path);
+                 $affiliate['photo_status'] = 'uploaded';
             }
             if($req->file('aadhar_front_image')){
                 $path = Storage::disk('local')->put( config('uploads.aadhar-front-path'), $req->aadhar_front_image, 'public');
                 $affiliate['aadhar_front_image'] = Storage::disk('local')->url($path);    
+                 $affiliate['aadhar_status'] = 'uploaded';
             }
             if($req->file('aadhar_back_image')){
                 $path = Storage::disk('local')->put( config('uploads.aadhar-back-path'), $req->aadhar_back_image, 'public');
                 $affiliate['aadhar_back_image'] = Storage::disk('local')->url($path);    
+              $affiliate['aadhar_status'] = 'uploaded';   
             }
             if($req->file('pan_image')){
                 $path = Storage::disk('local')->put( config('uploads.pan-path'), $req->pan_image, 'public');
                 $affiliate['pan_image'] = Storage::disk('local')->url($path);    
+                 $affiliate['pan_status'] = 'uploaded';
             }
             if($req->file('cancelled_cheque_image')){
                 $path = Storage::disk('local')->put( config('uploads.cancelled-cheque-path'), $req->cancelled_cheque_image, 'public');
                 $affiliate['cancelled_cheque_image'] = Storage::disk('local')->url($path);    
+                 $affiliate['bank_status'] = 'uploaded';
             }
 
 
@@ -340,7 +351,7 @@ class AffiliateController extends Controller
                 $affiliate['marital_status'] = $req->input('marital_status');
             }
 
-            if($req->filled('pan_card_no')){
+            if($req->filled('pan_card_no')){                
                 $affiliate['pan_card_no'] = $req->input('pan_card_no');
             }
 
@@ -382,6 +393,9 @@ class AffiliateController extends Controller
             if($req->filled('bank_ifsc_code')){
                 $affiliate['bank_ifsc_code'] = $req->input('bank_ifsc_code');
             }
+
+            
+
             $res = Affiliate::where('user_id', $user_id)->update($affiliate);
             if($res){
                 User::where('id', $user_id)->update($user);

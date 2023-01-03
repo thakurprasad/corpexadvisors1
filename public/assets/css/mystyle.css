@@ -131,3 +131,9 @@
 .how-item a.custom-button{
     color: white !important;
 }
+
+.row.gap-with-border{
+    border-top: 1px solid #ccc;
+    padding: 15px;
+}
+}

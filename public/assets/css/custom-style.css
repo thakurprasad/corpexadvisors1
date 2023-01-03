@@ -1,0 +1,14 @@
+.row.gap-with-border {
+    border-top: 5px solid aquamarine;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.aapproval-status-icon{
+    text-align: center;
+}
+
+.aapproval-status-icon img {
+    width: 103px !important;
+    text-align: center;
+}

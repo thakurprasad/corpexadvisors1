@@ -34,7 +34,13 @@ class UserController extends Controller
     public function edit_affiliate($user_id){
         try{
             $user_id = Helper::_decrypt($user_id);            
-             $user = User::select("*")
+             $user = User::select(
+                        'affiliates.*',
+                        'users.name',
+                        'users.mobile',
+                        'users.email',                        
+                        'users.user_type',                        
+                    )
                     ->join('affiliates', 'affiliates.user_id', '=', 'users.id')
                     ->where('users.id', $user_id)->first();           
             $user->pan_dob =  (new Carbon($user->pan_dob))->format('d/m/Y'); 
@@ -146,12 +152,27 @@ class UserController extends Controller
             if($req->filled('bank_ifsc_code')){
                 $affiliate['bank_ifsc_code'] = $req->input('bank_ifsc_code');
             }
+
+            if($req->filled('pan_status')){
+                $affiliate['pan_status'] = $req->input('pan_status');
+            }
+            if($req->filled('photo_status')){
+                $affiliate['photo_status'] = $req->input('photo_status');
+            }
+            if($req->filled('aadhar_status')){
+                $affiliate['aadhar_status'] = $req->input('aadhar_status');
+            }
+            if($req->filled('bank_status')){
+                $affiliate['bank_status'] = $req->input('bank_status');
+            }
+
             $res = Affiliate::where('user_id', $user_id)->update($affiliate);
             if($res){
-                User::where('id', $user_id)->update($user);
+                $u = User::where('id', $user_id)->update($user);
                 return redirect()->back()->with('success', 'Profile Updated Successfully.' );
             }else{
-                return redirect()->back()->with('error', 'Something went wrong.' );
+
+               return redirect()->back()->with('error', 'Something went wrong.' );
             }
             
             

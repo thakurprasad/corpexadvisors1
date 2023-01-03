@@ -21,6 +21,16 @@ class Helper
         ];
     }
 
+    public static function approval_status_options(){
+        return [ 
+            '' => '-- Select --',
+            'pending' => 'Pending',
+            'uploaded' => 'Uploaded',
+            'approved' => 'Approved',
+            'rejected' => 'Rejetced',
+        ];
+    }
+
     public static function viewStatus($val){
        $data = '';
        if($val == 1) { $data = 'Active'; }

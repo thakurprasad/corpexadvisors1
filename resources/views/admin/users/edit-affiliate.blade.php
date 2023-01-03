@@ -6,8 +6,8 @@
               @include('alert.message') 
               <!-- form start -->
                 <div class="card-body">
-                {!! Form::model($user, array('url' => 'admin/affiliate/update-profile/'.Helper::_encrypt(  $user->id ) ,'method'=>'POST',  'enctype'=>'multipart/form-data', 'id'=>'form_update_profile' )) !!} 
-
+                {!! Form::model($user, array('url' => 'admin/affiliate/update-profile/'.Helper::_encrypt(  $user->user_id ) ,'method'=>'POST',  'enctype'=>'multipart/form-data', 'id'=>'form_update_profile' )) !!} 
+ 
                   <div class="row col-md-12">
 
                     <div class="col-md-4 col-sm-12">
@@ -64,8 +64,15 @@
                         <img src="{{ $user->profile_image }}" id="view_profile_image" class="doc-image">                         
                       </div>
                     </div>
-                </div>
-    
+                
+                    <div class="col-md-4 col-sm-12">
+                      <div class="form-group" >
+                        <label>Profile Approval Status</label>
+                           {!! Form::select('photo_status', Helper::approval_status_options() , null, array('class' => 'form-control', 'id'=>'photo_status'  ) ) !!}
+                      </div>
+                    </div>
+
+                </div>      
              
                 <div class="row gap-with-border"></div>
 
@@ -98,7 +105,12 @@
                           </div>
                       </div>
                   </div>
-
+                  <div class="col-md-4 col-sm-12">
+                      <div class="form-group" >
+                        <label>PAN Approval Status</label>
+                           {!! Form::select('pan_status', Helper::approval_status_options() , null, array('class' => 'form-control', 'id'=>'pan_status'  ) ) !!}
+                      </div>
+                    </div>
 
                   </div>
 <div class="row gap-with-border"></div>
@@ -154,6 +166,13 @@
                       </div>
                     </div>
 
+                    <div class="col-md-4 col-sm-12">
+                      <div class="form-group" >
+                        <label>Aadhar Approval Status</label>
+                           {!! Form::select('aadhar_status', Helper::approval_status_options() , null, array('class' => 'form-control', 'id'=>'aadhar_status'  ) ) !!}
+                      </div>
+                    </div>
+
                   </div>
 <div class="row gap-with-border"></div>
                   <div class="row col-md-12">
@@ -200,7 +219,14 @@
 
                   </div>                  
 
-<div class="row gap-with-border"></div>
+                  <div class="col-md-4 col-sm-12">
+                      <div class="form-group" >
+                        <label>Bank Approval Status</label>
+                           {!! Form::select('bank_status', Helper::approval_status_options() , null, array('class' => 'form-control', 'id'=>'bank_status') ) !!}
+                      </div>
+                  </div>
+
+            <div class="row gap-with-border"></div>
                 <div class="col-md-12 text-center">                           
                     <button type="submit" class="btn btn-primary custom-button">Submit </button>
                </div>
