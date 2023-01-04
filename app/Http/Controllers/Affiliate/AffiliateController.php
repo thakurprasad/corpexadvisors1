@@ -265,7 +265,7 @@ class AffiliateController extends Controller
     }
 
 
-      public function edit_profile($user_id){
+    public function edit_profile($user_id){
         try{
             
             $user_id = Helper::_decrypt($user_id);

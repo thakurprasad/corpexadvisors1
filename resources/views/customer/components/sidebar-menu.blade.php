@@ -15,9 +15,11 @@
                 <a href="{{ url('/customer/dashboard') }}" class="active"><i class="flaticon-man"></i>Dashboard</a>
             </li>
             <li>
-                <a href="{{ url('/customer/dashboard') }}" class="active"><i class="flaticon-man"></i>Customer</a>
+                <a href="{{ url('/customer/services') }}"><i class="flaticon-man"></i>Sevices</a>
             </li>
-            
+            <li>
+                <a href="{{ url('/customer/active-services') }}"><i class="flaticon-man"></i>Active Sevices</a>
+            </li>            
             <li>
                 <a href="javascript:void(0)"><i class="flaticon-right-arrow"></i>Logout</a>
             </li>

@@ -29,25 +29,41 @@
 
 
 <section class="faq-section padding-top padding-bottom">
-        <div class="contener">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 col-md-10">
-                    <div class="section-header">
-                        <!-- <span class="cate">You have questions</span> -->
-                        <h2 class="title">
-                            What Will You get
-                        </h2>
-                        <p class="mw-100">
-                            
-                        </p>
-                    </div>
+        <div class="contener row">
+            <div class="col-md-8">
+                <div class="row justify-content-center">                    
+                        <div class="section-header">
+                            <!-- <span class="cate">You have questions</span> -->
+                            <h2 class="title">
+                                What Will You get
+                            </h2>
+                            <p class="mw-100">
+                                
+                            </p>
+                        </div>                    
+                </div>
+                <div class="row"> 
+                    <?php foreach ($result_data as $key => $value) {?>
+                        <div class="col-md-4"> <i class="fa fa-check" aria-hidden="true"></i> {!! $value !!}</div>    
+                    <?php } ?>
+                    
                 </div>
             </div>
-            <div class="row"> 
-                <?php foreach ($result_data as $key => $value) {?>
-                    <div class="col-md-4"> <i class="fa fa-check" aria-hidden="true"></i> {!! $value !!}</div>    
-                <?php } ?>
-                
+            <div class="col-md-4">
+              <div class="how-item">
+                    <div class="how-thumb-area">
+                        <div class="how-thumb">
+                            <img src="{{ asset('images/services/comman.png') }}" alt="how">
+                        </div>
+                    </div>
+                    <div class="how-content">
+                       <a href="#"> <h5 class="title">{{ $data['name'] }}</h5></a>
+                       <div class="other-content">
+                           <b>Rs. </b><span class="price">{{$data['price'] }}</span>                             
+                       </div>
+                       <a href="{{ url('checkout/'.Helper::_encrypt($data['id'])) }}" class="custom-button"> Buy Now <i class="flaticon-right"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
 </section>
@@ -122,6 +138,10 @@
 	.how-item a.custom-button{
 	    color: white !important;
 	}
+    span.price {
+    font-size: 45px;
+    color: green;
+}
  </style>
 @endsection  
 
