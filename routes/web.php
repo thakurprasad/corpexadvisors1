@@ -13,6 +13,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AgentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\CheckoutController;
 
 Route::get('/msg', function(){
      return redirect()->back()->withErrors(['msg'=> 'meeeeeeeeeee find.....']);
@@ -101,6 +102,11 @@ Route::group(['middleware' => ['auth']], function() {
 
 
    
+    Route::get('services/checkout/{id}', [ CheckoutController::class, 'checkout']);
+
+    Route::get('payment111', [CheckoutController::class, 'index']);
+    Route::post('payment', [CheckoutController::class, 'store'])->name('razorpay.payment.store');
+    
     Route::get('agents/add', [ AgentController::class, 'add']);
     Route::post('agents/add', [ AgentController::class, 'store']);
 

@@ -27,6 +27,9 @@
 	$working_process = json_decode($data['working_process']);
 ?>
 
+<section class="col-md-12 message">
+   @include('alert.message') 
+</section>
 
 <section class="faq-section padding-top padding-bottom">
         <div class="contener row">
@@ -61,9 +64,29 @@
                        <div class="other-content">
                            <b>Rs. </b><span class="price">{{$data['price'] }}</span>                             
                        </div>
-                       <a href="{{ url('checkout/'.Helper::_encrypt($data['id'])) }}" class="custom-button"> Buy Now <i class="flaticon-right"></i></a>
+                       <!-- <a href="{_{ url('services/checkout/'.Helper::_encrypt($data['id'])) }}" class="custom-button"> Buy Now <i class="flaticon-right"></i></a> -->
+
+<form action="{{ route('razorpay.payment.store') }}" method="POST" >
+  @csrf
+  <script src="https://checkout.razorpay.com/v1/checkout.js"
+     data-key="{{ env('RAZORPAY_KEY') }}"
+     data-amount="{{ ($data['price'] * 100) }}" 
+     data-currency="INR"
+     data-buttontext="Pay {{ ($data['price'] * 100 ) }} INR"
+     data-name="Websoft Technologies Pvt. Ltd."
+     data-description="{{ $data['name'] }}"
+     data-image="https://websoft-tech.com/img/websoft-tech-logo.jpg"
+     data-prefill.name="name"
+     data-prefill.email="email"
+     data-theme.color="#F37254">         
+     </script>
+</form>                
+
                     </div>
                 </div>
+
+
+
             </div>
         </div>
 </section>
